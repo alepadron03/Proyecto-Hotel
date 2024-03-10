@@ -11,9 +11,9 @@ package proyecto.hotel;
 public class NodoReser {
     private NodoReser hijoIzq;
     private NodoReser hijoDer;
-    private Object data;
+    private int data;
 
-    public NodoReser( Object data) {
+    public NodoReser( int data) {
         this.hijoIzq = null;
         this.hijoDer = null;
         this.data = data;
@@ -35,11 +35,11 @@ public class NodoReser {
         this.hijoDer = hijoDer;
     }
 
-    public Object getData() {
+    public int getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(int data) {
         this.data = data;
     }
     
