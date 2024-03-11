@@ -52,7 +52,7 @@ public class ArbolReservacion {
                 }
                 
             }else if(Root.getData().getCi().compareTo(newNodo.getData().getCi()) < 0){
-                if(Root.getHijoIzq()==null){
+                if(Root.getHijoDer()==null){
                     Root.setHijoDer(newNodo);
                 }else{
                     insertar(Root.getHijoIzq(),newNodo);
