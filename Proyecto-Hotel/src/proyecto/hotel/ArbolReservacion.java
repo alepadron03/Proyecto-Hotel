@@ -99,5 +99,5 @@ public class ArbolReservacion {
         }
     }
     
-    public NodoReser eliminarRoot()
+    
 }
