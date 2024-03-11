@@ -27,7 +27,7 @@ public class ArbolReservacion {
         return getRoot()==null;
     }
     
-    public void insertar(int data){
+    public void insertar(Cliente data){
         NodoReser newNodo=new NodoReser(data);
         if(Root==null){
             Root=newNodo;
@@ -44,14 +44,14 @@ public class ArbolReservacion {
             this.Root=newNodo;
             
         }else{
-            if(newNodo.getData() < Root.getData()){
+            if(Root.getData().getCi().compareTo(newNodo.getData().getCi()) > 0){
                 if(Root.getHijoIzq()==null){
                     Root.setHijoIzq(newNodo);
                 }else{
                     insertar(Root.getHijoIzq(), newNodo);
                 }
                 
-            }else if( newNodo.getData()>Root.getData()){
+            }else if(Root.getData().getCi().compareTo(newNodo.getData().getCi()) < 0){
                 if(Root.getHijoIzq()==null){
                     Root.setHijoDer(newNodo);
                 }else{
@@ -64,11 +64,13 @@ public class ArbolReservacion {
         
     }
     
-    public NodoReser buscar(NodoReser aux, int data){
+    public Cliente buscar(NodoReser aux, String data){
+        
         if(aux==null) return null;
-        if(aux.getData()==data){
-            return aux;
-        }else if(data< aux.getData()){
+        
+        if(aux.getData().getCi().equals(data)){
+            return aux.getData();
+        }else if(aux.getData().getCi().compareTo(data) > 0){
             return buscar(aux.getHijoIzq(), data);
         }else{
             return buscar(aux.getHijoDer(),data);
