@@ -4,8 +4,7 @@
  */
 package hashtablesPrim;
 
-import PREPA6.*;
-import PREPA5.*;
+
 
 /**
  *El enunciado
