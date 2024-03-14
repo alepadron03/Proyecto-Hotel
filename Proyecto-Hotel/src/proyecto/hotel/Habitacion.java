@@ -17,14 +17,14 @@ public class Habitacion {
     private String llegada;
     private String num_hab;
 
-    public Habitacion(String ci, String nombre, String apellido, String email, String genero, String llegada, String num_hab) {
-        this.ci = ci;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.genero = genero;
-        this.llegada = llegada;
-        this.num_hab = num_hab;
+    public Habitacion(String[] dato) {
+        this.ci = dato[0];
+        this.nombre = dato[1];
+        this.apellido = dato[2];
+        this.email = dato[3];
+        this.genero = dato[4];
+        this.llegada = dato[5];
+        this.num_hab = dato[6];
     }
 
     public String getCi() {

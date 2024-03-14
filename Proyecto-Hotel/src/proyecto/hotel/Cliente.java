@@ -19,16 +19,16 @@ public class Cliente {
    private String llegada;
    private String salida;
 
-    public Cliente(String ci, String nombre, String apellido, String email, String genero, String tipo_habitacion, String celular, String llegada, String salida) {
-        this.ci = ci;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.genero = genero;
-        this.tipo_habitacion = tipo_habitacion;
-        this.celular = celular;
-        this.llegada = llegada;
-        this.salida = salida;
+    public Cliente(String[] dato) {
+        this.ci = dato[0];
+        this.nombre = dato[1];
+        this.apellido = dato[2];
+        this.email = dato[3];
+        this.genero = dato[4];
+        this.tipo_habitacion = dato[5];
+        this.celular = dato[6];
+        this.llegada = dato[7];
+        this.salida = dato[8];
     }
 
     public String getCi() {
@@ -104,6 +104,8 @@ public class Cliente {
     }
   
     
-   
+   public String toString(){
+       return (this.ci + " " + this.nombre + " " + this.apellido + " " + this.email + " " + this.genero + " " + this.tipo_habitacion + " " + this.celular + " " + this.llegada + " " + this.salida);
+   }
    
 }

@@ -4,8 +4,8 @@
  */
 package proyecto.hotel;
 
-import java.io.File;
-import java.util.Scanner;
+import java.io.*;
+import hashtablesPrim.*;
 
 
 
@@ -14,25 +14,42 @@ import java.util.Scanner;
  * @author CMGamer
  */
 public class LectorArchivos {
+
     
-    
-    public static void main(String args[]) throws Exception{
-        Scanner nuevoScanner = new Scanner(new File("CSV/Estado.csv"));
-        nuevoScanner.useDelimiter(",");
-        while(nuevoScanner.hasNext()){
-            System.out.println(nuevoScanner.next());
+    public ArbolReservacion abridorArchivoReservas(){
+        String linea;
+        ArbolReservacion arbol = new ArbolReservacion();
+        
+        try{
+            BufferedReader lector = new BufferedReader(new FileReader("CSV/Reservas.csv"));
+            linea = lector.readLine();
+            while((linea = lector.readLine()) != null){
+                String[] fila = linea.split(",");
+                Cliente clientela = new Cliente(fila);
+                arbol.insertar(clientela);
+            }
+            lector.close();
+            System.out.println(arbol.buscar(arbol.getRoot(), "18.383.175"));
+            return arbol;
+        }catch(IOException e){
+            return null;
         }
-        nuevoScanner.close();
     }
     
-//    public String abridorArchivos() throws Exception{
-//        Scanner nuevoScanner = new Scanner(new File("CSV/Estado.csv"));
-//        nuevoScanner.useDelimiter(",");
-//        while(nuevoScanner.hasNext()){
-//            System.out.println(nuevoScanner.next());
-//        }
-//        nuevoScanner.close();
-//        return "Completado";
-//    }
-
+        public ArbolReservacion abridorArchivoEstado(){
+        String linea;
+        
+        try{
+            BufferedReader lector = new BufferedReader(new FileReader("CSV/Estado.csv"));
+            while((linea = lector.readLine()) != null){
+                String[] fila = linea.split(",");
+                Cliente clientela = new Cliente(fila);
+            }
+            lector.close();
+            
+            return null;
+        }catch(IOException e){
+            return null;
+        }
+    }
 }

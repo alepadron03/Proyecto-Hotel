@@ -29,17 +29,14 @@ public class ArbolReservacion {
     
     public void insertar(Cliente data){
         NodoReser newNodo=new NodoReser(data);
-        if(Root==null){
-            Root=newNodo;
+        if(this.Root==null){
+            this.Root=newNodo;
         }else{
-            insertar(Root,newNodo);
+            insertador(this.Root, newNodo);
         }
-        
     }
-        
-        
-        
-    public void insertar(NodoReser Root, NodoReser newNodo){
+                
+    public void insertador(NodoReser Root, NodoReser newNodo){
         if(esVacio()){
             this.Root=newNodo;
             
@@ -48,14 +45,14 @@ public class ArbolReservacion {
                 if(Root.getHijoIzq()==null){
                     Root.setHijoIzq(newNodo);
                 }else{
-                    insertar(Root.getHijoIzq(), newNodo);
+                    insertador(Root.getHijoIzq(), newNodo);
                 }
                 
             }else if(Root.getData().getCi().compareTo(newNodo.getData().getCi()) < 0){
                 if(Root.getHijoDer()==null){
                     Root.setHijoDer(newNodo);
                 }else{
-                    insertar(Root.getHijoIzq(),newNodo);
+                    insertador(Root.getHijoDer(),newNodo);
                 }
             }else{
                 System.out.println("El elemento ya se encuentra en el arbol");
@@ -101,5 +98,11 @@ public class ArbolReservacion {
         }
     }
     
-    
+    public void imprimir(NodoReser nodo){
+        if(nodo!=null){
+            imprimir(nodo.getHijoIzq()); // Visita el hijo izquierdo
+            System.out.println(nodo.getData()); // Imprime el valor del nodo
+            imprimir(nodo.getHijoDer()); // Visita el hijo derecho
+        }
+    }
 }
