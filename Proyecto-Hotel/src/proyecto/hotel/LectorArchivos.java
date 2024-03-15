@@ -29,21 +29,23 @@ public class LectorArchivos {
                 arbol.insertar(clientela);
             }
             lector.close();
-            System.out.println(arbol.buscar(arbol.getRoot(), "18.383.175"));
+//            System.out.println(arbol.buscar(arbol.getRoot(), "18.383.175"));
             return arbol;
         }catch(IOException e){
             return null;
         }
     }
     
-        public ArbolReservacion abridorArchivoEstado(){
+        public ArbolHabitacion abridorArchivoEstado(){
         String linea;
+        ArbolHabitacion arbol = new ArbolHabitacion();
         
         try{
-            BufferedReader lector = new BufferedReader(new FileReader("CSV/Estado.csv"));
+            BufferedReader lector = new BufferedReader(new FileReader("CSV/Historico.csv"));
             while((linea = lector.readLine()) != null){
                 String[] fila = linea.split(",");
-                Cliente clientela = new Cliente(fila);
+                Habitacion habitacion = new Habitacion(fila);
+                arbol.insertar(habitacion);
             }
             lector.close();
             

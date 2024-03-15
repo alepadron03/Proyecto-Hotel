@@ -62,7 +62,22 @@ public class ArbolHabitacion {
         
     }
     
-    
-    
-    
+    public int altura(NodoHabitacion node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return Math.max(altura(node.getHijoIzq()), altura(node.getHijoDer())) + 1;
+        }
+    }
+  
+    public NodoHabitacion rotarDerecha(NodoHabitacion y) {
+        NodoHabitacion x = y.getHijoIzq();
+        NodoHabitacion T2 = x.getHijoDer();
+        x.setHijoDer(y);
+        y.setHijoIzq(T2);
+
+        y.setAltura(Math.max(altura(y.getHijoIzq()), altura(y.getHijoDer())) + 1);
+        x.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
+        return x;
+    }
 }

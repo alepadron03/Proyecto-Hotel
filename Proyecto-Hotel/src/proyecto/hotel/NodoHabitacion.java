@@ -11,12 +11,15 @@ package proyecto.hotel;
 public class NodoHabitacion {
     private NodoHabitacion hijoIzq;
     private NodoHabitacion hijoDer;
-    private Habitacion data;
+    private String NroHab;
+    private ListaHabitacion Lista;
+    private int altura;
 
     public NodoHabitacion(Habitacion data) {
         this.hijoIzq = null;
         this.hijoDer = null;
-        this.data = data;
+        this.Lista = new ListaHabitacion();
+        this.NroHab = data.getNum_hab();
     }
 
     public NodoHabitacion getHijoIzq() {
@@ -35,12 +38,12 @@ public class NodoHabitacion {
         this.hijoDer = hijoDer;
     }
 
-    public Habitacion getData() {
-        return data;
+    public ListaHabitacion getData() {
+        return this.Lista;
     }
 
-    public void setData(Habitacion data) {
-        this.data = data;
+    public void setData(ListaHabitacion data) {
+        this.Lista = data;
     }
     
     public boolean hasDer(){
@@ -53,6 +56,22 @@ public class NodoHabitacion {
      public boolean esHoja(){
          return (getHijoDer()==null && getHijoIzq()==null);
      }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public String getNroHab() {
+        return NroHab;
+    }
+
+    public void setNroHab(String NroHab) {
+        this.NroHab = NroHab;
+    }
     
     
 }
