@@ -9,15 +9,19 @@ package hashtablesPrim;
  * @author joseg
  */
 public class clientes {
-    int numHab;
+    String numHab;
     String nombre;
     String apellido;
     clientes siguiente;
 
-    public clientes(int numHab, String nombre, String apellido) {
+    public clientes(String numHab, String nombre, String apellido) {
         this.numHab = numHab;
         this.nombre = nombre;
         this.apellido = apellido;
+    }
+    
+    public String toString(){
+        return ("Nro Hab: "+ this.numHab + "\n" + "Nombre y Apellido: " + this.nombre + " " + this.apellido);
     }
     
 }

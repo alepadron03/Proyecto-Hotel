@@ -35,21 +35,51 @@ public class LectorArchivos {
             return null;
         }
     }
+//    
+//        public ArbolHabitacion abridorArchivoHistorico(){
+//        String linea;
+//        ArbolHabitacion arbol = new ArbolHabitacion();
+//        
+//        try{
+//            BufferedReader lector = new BufferedReader(new FileReader("CSV/Historico.csv"));
+//            while((linea = lector.readLine()) != null){
+//                String[] fila = linea.split(",");
+//                Habitacion habitacion = new Habitacion(fila);
+//                arbol.insertar(habitacion);
+//            }
+//            lector.close();
+//            
+//            return null;
+//        }catch(IOException e){
+//            return null;
+//        }
+//    }
     
-        public ArbolHabitacion abridorArchivoEstado(){
+    
+    public registroHash abridorArchivoEstado(){
         String linea;
-        ArbolHabitacion arbol = new ArbolHabitacion();
-        
         try{
-            BufferedReader lector = new BufferedReader(new FileReader("CSV/Historico.csv"));
+            BufferedReader contador = new BufferedReader(new FileReader("CSV/Estado.csv"));
+            int cuentas = 0;
+            while (contador.readLine() != null) cuentas++;
+            contador.close();
+            
+ 
+            registroHash hashTable = new registroHash(cuentas);
+            
+            BufferedReader lector = new BufferedReader(new FileReader("CSV/Estado.csv"));
             while((linea = lector.readLine()) != null){
                 String[] fila = linea.split(",");
-                Habitacion habitacion = new Habitacion(fila);
-                arbol.insertar(habitacion);
+                if ("".equals(fila[0])){
+                    fila[0] = "No Existe";
+                }
+                hashTable.insertarHash(fila[0], fila[1], fila[2]);     
             }
-            lector.close();
             
-            return null;
+            System.out.println(hashTable.buscarHash("Smitty", "Prentice"));
+            System.out.println(hashTable.buscarHash("Xenos", "Blague"));
+            return hashTable;
+            
         }catch(IOException e){
             return null;
         }

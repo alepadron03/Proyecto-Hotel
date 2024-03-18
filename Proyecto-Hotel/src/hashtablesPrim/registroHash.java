@@ -40,17 +40,17 @@ public class registroHash {
         return (numAscii+apeAscii)%tamaño;
     }
     
-    public void insertarHash(int numhab, String nombre, String apellido){
+    public void insertarHash(String numhab, String nombre, String apellido){
         int hashAlmacenado = hash(nombre, apellido);
         clientes[hashAlmacenado].insertar(numhab, nombre, apellido);
     }
     
-    public void eliminarHash(int numhab, String nombre, String apellido){
+    public void eliminarHash(String nombre, String apellido){
         int hashAlmacenado=hash(nombre, apellido);
         clientes[hashAlmacenado].eliminar(nombre, apellido);
     }
     
-    public clientes buscarHash(int numhab, String nombre, String apellido){
+    public clientes buscarHash(String nombre, String apellido){
         int hashAlmacenado=hash(nombre, apellido);
         clientes clienteBuscado=clientes[hashAlmacenado].buscar(nombre, apellido);
         return clienteBuscado;

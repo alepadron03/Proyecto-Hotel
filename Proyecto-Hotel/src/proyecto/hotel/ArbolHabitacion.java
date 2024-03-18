@@ -42,14 +42,14 @@ public class ArbolHabitacion {
             this.Root=newNodo;
         }
         else{
-            if(Root.getData().getNum_hab().compareTo(newNodo.getData().getNum_hab())>0){
+            if(Root.getNroHab().compareTo(newNodo.getNroHab())>0){
                 if(Root.getHijoIzq()==null){
                     Root.setHijoIzq(newNodo);
                 }else{
                     insertar(Root.getHijoIzq(),newNodo);
                 }
                 
-            }else if(Root.getData().getNum_hab().compareTo(newNodo.getData().getNum_hab())<0){
+            }else if(Root.getNroHab().compareTo(newNodo.getNroHab())<0){
                 if(Root.getHijoDer()==null){
                     Root.setHijoDer(newNodo);
                 }else{

@@ -22,7 +22,7 @@ public class Lista{
         this.tamaño=0; //tamaño 0 porque no hay nada aun, this es para llamar a atributos especificos
         this.primero=null; //el primer nodo esta vacío
     }
-    public void insertar(int numhab, String nombre, String apellido){ 
+    public void insertar(String numhab, String nombre, String apellido){ 
         clientes nuevo=new clientes(numhab, nombre, apellido);
         //par colocar el cuarto en primero
         if(primero==null){
@@ -34,18 +34,18 @@ public class Lista{
         }
     }
     
-    public void insertarnodo(int numhab, String nombre, String apellido){
+    public void insertarnodo(String numhab, String nombre, String apellido){
         clientes ultimo=new clientes(numhab, nombre, apellido);
         
         this.primero=ultimo;
     }
     
-    public void insertarfinal(int numhab, String nombre, String apellido){
+    public void insertarfinal(String numhab, String nombre, String apellido){
         clientes ultimo=new clientes(numhab, nombre, apellido);
         this.primero.siguiente=ultimo;
     } 
     //para meter un nodo dentro de 2:
-    public void insertarentredos(int numhab, String nombre, String apellido){
+    public void insertarentredos(String numhab, String nombre, String apellido){
         clientes medio= new clientes(numhab, nombre, apellido);
         medio.siguiente = this.primero.siguiente; //primero.siguiente es el 2do
         this.primero.siguiente=medio;
@@ -60,7 +60,7 @@ public class Lista{
     
     
     //si su siguiente es nulo parar(recorre lista hasta hallar nulo)
-    public void buscarultimo(int numhab, String nombre, String apellido){ 
+    public void buscarultimo(String numhab, String nombre, String apellido){ 
         clientes ultimo= new clientes(numhab, nombre, apellido);
         clientes aux=this.primero;
         while (aux.siguiente!=null){
