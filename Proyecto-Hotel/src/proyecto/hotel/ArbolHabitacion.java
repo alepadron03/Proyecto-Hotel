@@ -80,4 +80,29 @@ public class ArbolHabitacion {
         x.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
         return x;
     }
+     public NodoHabitacion rotarIzquierda(NodoHabitacion x) {
+        NodoHabitacion y = x.getHijoIzq();
+        NodoHabitacion T2 = y.getHijoDer();
+        y.setHijoIzq(x);
+        x.setHijoDer(T2);
+        x.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
+        y.setAltura( Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
+        return y;
+    }
+     
+    public boolean isBalanced(NodoHabitacion node) {
+        if (node == null) {
+            return true;
+        }
+
+        int leftHeight = altura(node.getHijoIzq());
+        int rightHeight = altura(node.getHijoDer());
+
+        return Math.abs(leftHeight - rightHeight) <= 1
+            && isBalanced(node.getHijoIzq())
+            && isBalanced(node.getHijoDer());
+    }
+    
+    
+    
 }
