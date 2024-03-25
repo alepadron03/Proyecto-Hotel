@@ -9,12 +9,17 @@ package interfaz;
  * @author alexp
  */
 public class BuscarReservacion extends javax.swing.JFrame {
-
+    public static MenuPrincipal m1;
     /**
      * Creates new form BuscarReservacion
      */
-    public BuscarReservacion() {
+    public BuscarReservacion(MenuPrincipal m1) {
         initComponents();
+        this.m1=m1;
+        m1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -111,7 +116,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarReservacion().setVisible(true);
+                new BuscarReservacion( m1).setVisible(true);
             }
         });
     }
