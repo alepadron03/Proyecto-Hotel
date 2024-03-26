@@ -63,6 +63,8 @@ public class ArbolHabitacion {
         }
     }
     
+    
+    
 //    
 //    public int altura(NodoHabitacion node) {
 //        if (node == null) {

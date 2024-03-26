@@ -24,8 +24,6 @@ public class CheckOut {
         }else{
             HashTable.eliminarHash(Nombre, Apellido);
             Habitacion.insertar(data);
-            
-            
             return "El cliente se ha movido";
         }
     }
