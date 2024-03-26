@@ -11,13 +11,14 @@ package proyecto.hotel;
 public class Nodo {
     private Habitacion dato;
     private Nodo pNext;
+    
 
     public Nodo(Habitacion dato) {
         this.dato = dato;
         this.pNext = null;
     }
 
-    public Object getDato() {
+    public Habitacion getDato() {
         return dato;
     }
 

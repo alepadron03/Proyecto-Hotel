@@ -61,16 +61,68 @@ public class ArbolReservacion {
         
     }
     
-    public Cliente buscar(NodoReser aux, String data){
+    public NodoReser eliminador(NodoReser Root, String CI){
+        if (Root == null){
+            return Root;
+        }
+        
+        if(Root.getData().getCi().compareTo(CI) > 0){
+            Root.setHijoIzq(eliminador(Root.getHijoIzq(), CI));
+            return Root;
+        }else if(Root.getData().getCi().compareTo(CI) > 0){
+            Root.setHijoDer(eliminador(Root.getHijoDer(), CI));
+            return Root;
+        }
+        
+        if(Root.getHijoIzq() == null){
+            NodoReser aux = Root.getHijoDer();
+            return aux;
+        }else if(Root.getHijoDer() == null){
+            NodoReser aux = Root.getHijoIzq();
+            return aux;
+        }else{
+            NodoReser succesoral = Root;
+            
+            NodoReser succesorado = Root.getHijoDer();
+            
+            while(succesorado.getHijoIzq() != null){
+                succesoral = succesorado;
+                succesorado = succesorado.getHijoIzq();
+            }
+            
+            if(succesoral != Root){
+               succesoral.setHijoIzq(succesorado.getHijoDer());
+            }else{
+                succesoral.setHijoDer(succesorado.getHijoIzq());
+            }
+            
+            Root.setData(succesorado.getData());
+            return Root;         
+        }
+    }
+    
+    public NodoReser buscar(String data){
+        NodoReser aux = this.Root;
+        
+        if (aux==null){ 
+            return null;
+        }else{
+            NodoReser info = buscador(aux, data);
+            return info;
+        }
+        
+    }
+    
+    public NodoReser buscador(NodoReser aux, String data){
         
         if(aux==null) return null;
         
         if(aux.getData().getCi().equals(data)){
-            return aux.getData();
+            return aux;
         }else if(aux.getData().getCi().compareTo(data) > 0){
-            return buscar(aux.getHijoIzq(), data);
+            return buscador(aux.getHijoIzq(), data);
         }else{
-            return buscar(aux.getHijoDer(),data);
+            return buscador(aux.getHijoDer(),data);
         }
     }
     

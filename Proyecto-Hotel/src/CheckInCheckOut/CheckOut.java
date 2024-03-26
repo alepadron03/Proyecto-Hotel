@@ -4,10 +4,29 @@
  */
 package CheckInCheckOut;
 
+import hashtablesPrim.*;
+import proyecto.hotel.*;
+
 /**
  *
  * @author joseg
  */
 public class CheckOut {
     
+        public String CheckOut(ArbolHabitacion Habitacion, registroHash HashTable, String Nombre, String Apellido){
+
+        clientes cliente = HashTable.buscarHash(Nombre, Apellido);
+        Habitacion data = new Habitacion(cliente.getNombre(),cliente.getApellido(),cliente.getNumHab());
+        
+        
+        if(cliente == null){
+            return "El cliente no existe";
+        }else{
+            HashTable.eliminarHash(Nombre, Apellido);
+            Habitacion.insertar(data);
+            
+            
+            return "El cliente se ha movido";
+        }
+    }
 }

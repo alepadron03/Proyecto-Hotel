@@ -29,31 +29,33 @@ public class LectorArchivos {
                 arbol.insertar(clientela);
             }
             lector.close();
-//            System.out.println(arbol.buscar(arbol.getRoot(), "18.383.175"));
             return arbol;
         }catch(IOException e){
             return null;
         }
     }
-//    
-//        public ArbolHabitacion abridorArchivoHistorico(){
-//        String linea;
-//        ArbolHabitacion arbol = new ArbolHabitacion();
-//        
-//        try{
-//            BufferedReader lector = new BufferedReader(new FileReader("CSV/Historico.csv"));
-//            while((linea = lector.readLine()) != null){
-//                String[] fila = linea.split(",");
-//                Habitacion habitacion = new Habitacion(fila);
-//                arbol.insertar(habitacion);
-//            }
-//            lector.close();
-//            
-//            return null;
-//        }catch(IOException e){
-//            return null;
-//        }
-//    }
+    
+
+        public ArbolHabitacion abridorArchivoHistorico(){
+        String linea;
+        ArbolHabitacion arbol = new ArbolHabitacion();
+        
+        try{
+            BufferedReader lector = new BufferedReader(new FileReader("CSV/Historico.csv"));
+            linea = lector.readLine();
+            while((linea = lector.readLine()) != null){
+                String[] fila = linea.split(",");
+                Habitacion habitacion = new Habitacion(fila);
+                arbol.insertar(habitacion);
+            }
+           
+            lector.close();
+            arbol.imprimir(arbol.getRoot());
+            return null;
+        }catch(IOException e){
+            return null;
+        }
+    }
     
     
     public registroHash abridorArchivoEstado(){
@@ -68,6 +70,7 @@ public class LectorArchivos {
             registroHash hashTable = new registroHash(cuentas);
             
             BufferedReader lector = new BufferedReader(new FileReader("CSV/Estado.csv"));
+            linea = lector.readLine();
             while((linea = lector.readLine()) != null){
                 String[] fila = linea.split(",");
                 if ("".equals(fila[0])){
@@ -75,9 +78,6 @@ public class LectorArchivos {
                 }
                 hashTable.insertarHash(fila[0], fila[1], fila[2]);     
             }
-            
-            System.out.println(hashTable.buscarHash("Smitty", "Prentice"));
-            System.out.println(hashTable.buscarHash("Xenos", "Blague"));
             return hashTable;
             
         }catch(IOException e){

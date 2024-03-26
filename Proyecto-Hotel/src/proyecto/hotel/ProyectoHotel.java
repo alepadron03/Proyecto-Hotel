@@ -16,7 +16,7 @@ public class ProyectoHotel {
     public static void main(String[] args) {
         LectorArchivos lector = new LectorArchivos();
         
-        lector.abridorArchivoEstado();
+        lector.abridorArchivoHistorico();
     }
     
 }

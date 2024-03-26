@@ -26,6 +26,16 @@ public class Habitacion {
         this.llegada = dato[5];
         this.num_hab = dato[6];
     }
+    
+    public Habitacion(String Nombre, String Apellido, String numHab){
+        this.ci = null;
+        this.nombre = Nombre;
+        this.apellido = Apellido;
+        this.email = null;
+        this.genero = null;
+        this.llegada = null;
+        this.num_hab = numHab;     
+    }
 
     public String getCi() {
         return ci;
@@ -83,8 +93,9 @@ public class Habitacion {
         this.num_hab = num_hab;
     }
  
-
-    
+    public String toString(){
+        return("CI: " + this.ci + "\nNombre y Apellido: " + this.nombre + " " + this.apellido + "\nNumHab: " + this.num_hab);
+    }
 }
     
     

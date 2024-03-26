@@ -12,7 +12,6 @@ public class registroHash {
    
     Lista[] clientes;
     int tamaño;
-    registroHash siguiente;
 
     public registroHash(int tamaño) {
         this.tamaño = tamaño;

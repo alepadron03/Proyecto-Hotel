@@ -18,7 +18,7 @@ public class NodoHabitacion {
     public NodoHabitacion(Habitacion data) {
         this.hijoIzq = null;
         this.hijoDer = null;
-        this.Lista = new ListaHabitacion();
+        this.Lista = new ListaHabitacion(new Nodo(data));
         this.NroHab = data.getNum_hab();
     }
 
@@ -38,11 +38,11 @@ public class NodoHabitacion {
         this.hijoDer = hijoDer;
     }
 
-    public ListaHabitacion getData() {
+    public ListaHabitacion getLista() {
         return this.Lista;
     }
 
-    public void setData(ListaHabitacion data) {
+    public void setLista(ListaHabitacion data) {
         this.Lista = data;
     }
     
@@ -72,6 +72,6 @@ public class NodoHabitacion {
     public void setNroHab(String NroHab) {
         this.NroHab = NroHab;
     }
-    
+
     
 }

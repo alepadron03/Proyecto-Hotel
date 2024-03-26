@@ -9,14 +9,21 @@ package proyecto.hotel;
  * @author alexp
  */
 public class ListaHabitacion {
-     private Nodo pFirst;
+    private Nodo pFirst;
     private Nodo pLast;
     private int size;
 
     public ListaHabitacion() {
-        this.pFirst = pFirst;
-        this.pLast=pLast;
+        this.pFirst = null;
+        this.pLast= null;
         this.size = 0;
+    }
+    
+    public ListaHabitacion(Nodo dato){
+        this.pFirst = dato;
+        this.pLast = dato;
+        this.size = 1;
+                
     }
 
     public Nodo getpFirst() {
@@ -187,5 +194,13 @@ public class ListaHabitacion {
            temp=temp.getpNext();
        }
        return false;
+   }
+   
+   public void imprimir(){
+       Nodo aux = this.pFirst;
+       while(aux != null){
+           System.out.println(aux.getDato());
+           aux = aux.getpNext();
+       }
    }
 }
