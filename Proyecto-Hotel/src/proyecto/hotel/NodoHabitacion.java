@@ -12,6 +12,7 @@ public class NodoHabitacion {
     private NodoHabitacion hijoIzq;
     private NodoHabitacion hijoDer;
     private Habitacion data;
+    
 
     public NodoHabitacion(Habitacion data) {
         this.hijoIzq = null;

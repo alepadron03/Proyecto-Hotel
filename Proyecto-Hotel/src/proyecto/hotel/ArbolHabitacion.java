@@ -62,6 +62,23 @@ public class ArbolHabitacion {
         
     }
     
+    public Habitacion buscarHabitacion(String tipo_habitacion, NodoHabitacion actual){
+        if(actual!=null){
+            if (actual.getData().getTipoHab().equals(tipo_habitacion) &&  !actual.getData().getOcupado()){ //entonces aqui lo que hacemos es que comparamos la habitacion actual con el tipo de habitacion y ademas verificamos que no este ocupado
+                actual.getData().setOcupado(true);
+                return actual.getData();
+            
+            }else{
+                Habitacion h = null;
+                h = this.buscarHabitacion(tipo_habitacion, actual.getHijoIzq());
+                if(h == null){
+                    h = this.buscarHabitacion(tipo_habitacion, actual.getHijoDer());
+                }
+                return h;
+        }
+    }
+        return null;
+    }
     
     
     

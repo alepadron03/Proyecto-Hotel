@@ -16,6 +16,8 @@ public class Habitacion {
     private String genero;
     private String llegada;
     private String num_hab;
+    private String tipo_habitación; //aqui hacemos esto para saber si encaja con la reservacion, si coinciden.
+    public boolean ocupado;
 
     public Habitacion(String ci, String nombre, String apellido, String email, String genero, String llegada, String num_hab) {
         this.ci = ci;
@@ -25,6 +27,7 @@ public class Habitacion {
         this.genero = genero;
         this.llegada = llegada;
         this.num_hab = num_hab;
+        this.ocupado=ocupado;
     }
 
     public String getCi() {
@@ -82,10 +85,21 @@ public class Habitacion {
     public void setNum_hab(String num_hab) {
         this.num_hab = num_hab;
     }
- 
-
     
-}
+    public boolean getOcupado(){
+        return this.ocupado; //para el check in o check out
+    
+    }
+    
+    public void setOcupado(boolean valor){
+        this.ocupado = valor;
+    }
+    
+    public String getTipoHab(){
+        return this.tipo_habitación;
+    }
+    }
+
     
     
     
