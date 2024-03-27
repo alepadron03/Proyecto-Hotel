@@ -39,36 +39,65 @@ public class BuscarClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Salida = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        volvermenu = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        imagenclientes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 90, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 90, 40));
 
+        Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.setForeground(new java.awt.Color(0, 0, 0));
         Nombre.setText("Nombre");
         jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 180, -1));
 
+        Apellido.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido.setForeground(new java.awt.Color(0, 0, 0));
         Apellido.setText("Apellido");
         jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 180, -1));
 
+        Salida.setBackground(new java.awt.Color(255, 255, 255));
         Salida.setColumns(20);
+        Salida.setForeground(new java.awt.Color(0, 0, 0));
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 330, 200));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 290, 110));
 
-        jLabel1.setText("Buscador de Clientes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 210, 50));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel1.setText("Búsqueda de Clientes");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 210, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
+        volvermenu.setBackground(new java.awt.Color(255, 255, 255));
+        volvermenu.setForeground(new java.awt.Color(0, 0, 0));
+        volvermenu.setText("Volver al menú");
+        volvermenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volvermenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volvermenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel2.setText("Ingrese el nombre y apellido del cliente");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+
+        imagenclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IbClientes.png"))); // NOI18N
+        jPanel1.add(imagenclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 550, 420));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -84,6 +113,11 @@ public class BuscarClientes extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
+        this.setVisible(false);
+        cargarArchivo.setVisible(true);
+    }//GEN-LAST:event_volvermenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,9 +158,12 @@ public class BuscarClientes extends javax.swing.JFrame {
     private javax.swing.JTextField Apellido;
     private javax.swing.JTextField Nombre;
     private javax.swing.JTextArea Salida;
+    private javax.swing.JLabel imagenclientes;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton volvermenu;
     // End of variables declaration//GEN-END:variables
 }

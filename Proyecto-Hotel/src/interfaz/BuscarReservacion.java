@@ -34,15 +34,20 @@ public class BuscarReservacion extends javax.swing.JFrame {
     private void initComponents() {
 
         CI = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Salida = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        volvermenu = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        imagenreservacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        CI.setBackground(new java.awt.Color(255, 255, 255));
+        CI.setForeground(new java.awt.Color(0, 0, 0));
         CI.setText("CI");
         CI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,27 +56,48 @@ public class BuscarReservacion extends javax.swing.JFrame {
         });
         getContentPane().add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 170, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Busqueda de reservacion");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 210, 30));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Salida.setBackground(new java.awt.Color(255, 255, 255));
         Salida.setColumns(20);
+        Salida.setForeground(new java.awt.Color(0, 0, 0));
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 320, 160));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 300, 120));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 100, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
+        volvermenu.setBackground(new java.awt.Color(255, 255, 255));
+        volvermenu.setForeground(new java.awt.Color(255, 255, 255));
+        volvermenu.setText("Volver al menú");
+        volvermenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volvermenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volvermenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jLabel2.setText("Ingrese el número de cédula del cliente");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jLabel1.setText("Busqueda de reservacion");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 320, 30));
+
+        imagenreservacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reserva.png"))); // NOI18N
+        jPanel1.add(imagenreservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 450));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +116,11 @@ public class BuscarReservacion extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
+        this.setVisible(false);
+        cargarArchivo.setVisible(true);
+    }//GEN-LAST:event_volvermenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,9 +160,12 @@ public class BuscarReservacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CI;
     private javax.swing.JTextArea Salida;
+    private javax.swing.JLabel imagenreservacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton volvermenu;
     // End of variables declaration//GEN-END:variables
 }

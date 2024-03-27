@@ -38,33 +38,60 @@ public class BuscarHistorial extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Salida = new javax.swing.JTextArea();
         Nro = new javax.swing.JTextField();
+        volvermenu = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        imagenhistorial = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, 70));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 80, 20));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel1.setText("Buscar Historial de Habitacion ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
+        Salida.setBackground(new java.awt.Color(255, 255, 255));
         Salida.setColumns(20);
+        Salida.setForeground(new java.awt.Color(0, 0, 0));
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 310, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 260, 130));
 
+        Nro.setBackground(new java.awt.Color(255, 255, 255));
+        Nro.setForeground(new java.awt.Color(0, 0, 0));
         Nro.setText("Nro Hab");
-        jPanel1.add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 150, 40));
+        jPanel1.add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 150, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
+        volvermenu.setBackground(new java.awt.Color(255, 255, 255));
+        volvermenu.setForeground(new java.awt.Color(0, 0, 0));
+        volvermenu.setText("Volver al menú");
+        volvermenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volvermenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volvermenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        jLabel2.setText("Ingrese el número de habitación ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 220, -1));
+
+        imagenhistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ihistorial.png"))); // NOI18N
+        jPanel1.add(imagenhistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 530, 430));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,6 +109,11 @@ public class BuscarHistorial extends javax.swing.JFrame {
             
            
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
+        this.setVisible(false);
+        cargarArchivo.setVisible(true);
+    }//GEN-LAST:event_volvermenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,9 +153,12 @@ public class BuscarHistorial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Nro;
     private javax.swing.JTextArea Salida;
+    private javax.swing.JLabel imagenhistorial;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton volvermenu;
     // End of variables declaration//GEN-END:variables
 }

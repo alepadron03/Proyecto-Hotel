@@ -42,10 +42,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Checkout = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        Imagenmenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BusquedaClientes.setBackground(new java.awt.Color(255, 255, 255));
+        BusquedaClientes.setForeground(new java.awt.Color(0, 0, 0));
         BusquedaClientes.setText("Búsqueda de clientes");
         BusquedaClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(BusquedaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 140, 160, 30));
 
+        HistorialReservacion.setBackground(new java.awt.Color(255, 255, 255));
+        HistorialReservacion.setForeground(new java.awt.Color(0, 0, 0));
         HistorialReservacion.setText("Historial de Reservación");
         HistorialReservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +67,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(HistorialReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 160, 30));
 
+        BusquedaReservacion.setBackground(new java.awt.Color(255, 255, 255));
+        BusquedaReservacion.setForeground(new java.awt.Color(0, 0, 0));
         BusquedaReservacion.setText("Búsqueda de reservación");
         BusquedaReservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +77,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(BusquedaReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 180, -1, 30));
 
+        CheckIn.setBackground(new java.awt.Color(255, 255, 255));
+        CheckIn.setForeground(new java.awt.Color(0, 0, 0));
         CheckIn.setText("Check In");
         CheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +87,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, -1));
 
+        Checkout.setBackground(new java.awt.Color(255, 255, 255));
+        Checkout.setForeground(new java.awt.Color(0, 0, 0));
         Checkout.setText("Check out");
         Checkout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +97,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 160, -1));
 
+        Salir.setBackground(new java.awt.Color(255, 255, 255));
+        Salir.setForeground(new java.awt.Color(0, 0, 0));
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +108,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Imagenmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imenu.jpg"))); // NOI18N
+        jPanel1.add(Imagenmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 560, 380));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
         pack();
@@ -170,6 +187,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton CheckIn;
     private javax.swing.JButton Checkout;
     private javax.swing.JButton HistorialReservacion;
+    private javax.swing.JLabel Imagenmenu;
     private javax.swing.JButton Salir;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
