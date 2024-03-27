@@ -79,6 +79,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, -1));
 
         Checkout.setText("Check out");
+        Checkout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckoutActionPerformed(evt);
+            }
+        });
         getContentPane().add(Checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 160, -1));
 
         Salir.setText("Salir");
@@ -118,6 +123,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CheckIn ventana4 = new CheckIn(MenuPrincipal);
         ventana4.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_CheckInActionPerformed
+
+    private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
+        CheckOut ventana5 = new CheckOut(MenuPrincipal);
+        ventana5.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_CheckoutActionPerformed
 
     /**
      * @param args the command line arguments
