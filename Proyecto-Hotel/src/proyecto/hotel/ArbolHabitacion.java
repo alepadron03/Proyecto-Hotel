@@ -118,5 +118,30 @@ public class ArbolHabitacion {
     }
     
     
+    public NodoHabitacion buscar(String data){
+        NodoHabitacion aux = this.Root;
+
+        if (aux==null){ 
+            return null;
+        }else{
+            NodoHabitacion info = buscador(aux, data);
+            return info;
+        }
+        
+    }
+    
+    public NodoHabitacion buscador(NodoHabitacion aux, String data){
+        
+        if(aux==null) return null;
+        
+        if(aux.getNroHab().equals(data)){
+            return aux;
+        }else if(aux.getNroHab().compareTo(data) > 0){
+            return buscador(aux.getHijoIzq(), data);
+        }else{
+            return buscador(aux.getHijoDer(),data);
+        }
+    }
+    
     
 }

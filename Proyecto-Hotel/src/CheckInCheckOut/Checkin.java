@@ -13,14 +13,15 @@ import proyecto.hotel.*;
  * @author joseg
  */
 public class Checkin {
-    
-    public String CheckIn(ArbolReservacion Reservacion, registroHash HashTable, String Ci, String Habitacion){
 
-        Cliente cliente = Reservacion.buscar(Ci).getData();
+    public String CheckIn(ArbolReservacion Reservacion, registroHash HashTable, String Ci, String Habitacion){
         
-        if(cliente == null){
+        NodoReser reserva = Reservacion.buscar(Ci);
+        
+        if(reserva == null){
             return "El cliente no existe";
         }else{
+            Cliente cliente = reserva.getData();
             HashTable.insertarHash(Habitacion, cliente.getNombre(), cliente.getApellido());
             Reservacion.eliminador(Reservacion.getRoot(), Ci);
             return "El cliente se ha movido";

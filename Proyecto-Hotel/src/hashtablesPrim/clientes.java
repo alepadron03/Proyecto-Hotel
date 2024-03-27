@@ -43,9 +43,7 @@ public class clientes {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
-    
-    
+   
     public String toString(){
         return ("Nro Hab: "+ this.numHab + "\n" + "Nombre y Apellido: " + this.nombre + " " + this.apellido);
     }

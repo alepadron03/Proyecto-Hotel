@@ -4,17 +4,26 @@
  */
 package interfaz;
 
+import hashtablesPrim.*;
+import proyecto.hotel.*;
+
 /**
  *
  * @author alexp
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MenuPrincipal
-     */
+    public static MenuPrincipal MenuPrincipal;
+    static public ArbolHabitacion arbolHabitacion;
+    static public ArbolReservacion arbolReservacion;
+    static public registroHash hashTable;
+    
     public MenuPrincipal() {
         initComponents();
+        LectorArchivos lector = new LectorArchivos();
+        if(arbolHabitacion == null || arbolReservacion == null || hashTable == null);
+            arbolHabitacion = lector.abridorArchivoHistorico();
+            arbolReservacion = lector.abridorArchivoReservas();
+            hashTable = lector.abridorArchivoEstado();
     }
 
     /**
@@ -26,22 +35,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         BusquedaClientes = new javax.swing.JButton();
-        BusquedaReservacion = new javax.swing.JToggleButton();
         HistorialReservacion = new javax.swing.JButton();
+        BusquedaReservacion = new javax.swing.JToggleButton();
         CheckIn = new javax.swing.JButton();
         Checkout = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
-
         BusquedaClientes.setText("Búsqueda de clientes");
+        BusquedaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BusquedaClientesActionPerformed(evt);
+            }
+        });
         getContentPane().add(BusquedaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 140, 160, 30));
+
+        HistorialReservacion.setText("Historial de Reservación");
+        HistorialReservacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistorialReservacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HistorialReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 160, 30));
 
         BusquedaReservacion.setText("Búsqueda de reservación");
         BusquedaReservacion.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +70,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(BusquedaReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 180, -1, 30));
 
-        HistorialReservacion.setText("Historial de Reservación");
-        getContentPane().add(HistorialReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 160, 30));
-
         CheckIn.setText("Check In");
+        CheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckInActionPerformed(evt);
+            }
+        });
         getContentPane().add(CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, -1));
 
         Checkout.setText("Check out");
@@ -68,6 +89,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -76,8 +100,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void BusquedaReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaReservacionActionPerformed
-        BuscarReservacion br= new BuscarReservacion(this);
+        BuscarReservacion ventana3 = new BuscarReservacion(MenuPrincipal);
+        ventana3.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_BusquedaReservacionActionPerformed
+
+    private void BusquedaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaClientesActionPerformed
+        BuscarClientes ventana1 = new BuscarClientes(MenuPrincipal);
+        ventana1.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_BusquedaClientesActionPerformed
+
+    private void HistorialReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialReservacionActionPerformed
+        BuscarHistorial ventana2 = new BuscarHistorial(MenuPrincipal);
+        ventana2.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_HistorialReservacionActionPerformed
+
+    private void CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInActionPerformed
+        CheckIn ventana4 = new CheckIn(MenuPrincipal);
+        ventana4.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_CheckInActionPerformed
 
     /**
      * @param args the command line arguments

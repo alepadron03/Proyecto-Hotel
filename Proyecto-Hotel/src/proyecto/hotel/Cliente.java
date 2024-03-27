@@ -105,7 +105,7 @@ public class Cliente {
   
     
    public String toString(){
-       return (this.ci + " " + this.nombre + " " + this.apellido + " " + this.email + " " + this.genero + " " + this.tipo_habitacion + " " + this.celular + " " + this.llegada + " " + this.salida);
+       return ("Cedula: " + this.ci + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido: " + this.apellido + "\n" + "Email: " + this.email + "\n" + "Genero: " + this.genero + "\n" +"Tipo de Habitacion: " + this.tipo_habitacion + "\n" +"Celular: "+ this.celular + "\n" +"Llegada: "+ this.llegada + "\n" +"Salida: "+ this.salida);
    }
    
 }

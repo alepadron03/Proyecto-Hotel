@@ -3,25 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+
+import CheckInCheckOut.Checkin;
+import hashtablesPrim.registroHash;
 import proyecto.hotel.*;
+
 /**
  *
- * @author alexp
+ * @author CMGamer
  */
-public class BuscarReservacion extends javax.swing.JFrame {
+public class CheckIn extends javax.swing.JFrame {
+
+    
     
     public static MenuPrincipal cargarArchivo;
-    public ArbolReservacion arbolReservacion = MenuPrincipal.arbolReservacion;
+    static public ArbolReservacion arbolReservacion = MenuPrincipal.arbolReservacion;
+    static public registroHash hashTable = MenuPrincipal.hashTable;
     
-    
-    
-    
-    /**
-     * Creates new form BuscarReservacion
-     */
-    public BuscarReservacion(MenuPrincipal cargarArchivo) {
+    public CheckIn(MenuPrincipal cargarArchivo) {
         initComponents();
-
     }
 
     /**
@@ -33,53 +33,66 @@ public class BuscarReservacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CI = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        Nro = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Salida = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        CI = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CIActionPerformed(evt);
-            }
-        });
-        getContentPane().add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 170, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Busqueda de reservacion");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 210, 30));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Salida.setColumns(20);
-        Salida.setRows(5);
-        jScrollPane1.setViewportView(Salida);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 320, 160));
-
-        jButton1.setText("Buscar");
+        jButton1.setText("Mover");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 170, 120, 30));
+
+        Nro.setText("Numero Hab");
+        Nro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 140, -1));
+
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane1.setViewportView(Salida);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 390, 220));
+
+        jLabel1.setText("CheckIn");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+
+        CI.setText("Cedula");
+        jPanel1.add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 140, -1));
+
+        jButton2.setText("Revisar Reserva");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CIActionPerformed
+    private void NroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CIActionPerformed
+    }//GEN-LAST:event_NroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(!CI.getText().isBlank()){
             NodoReser cliente = arbolReservacion.buscar(CI.getText());
             if(cliente == null){
@@ -87,6 +100,13 @@ public class BuscarReservacion extends javax.swing.JFrame {
             }else{
                 Salida.setText(cliente.getData().toString());
             }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!CI.getText().isBlank() || !Nro.getText().isBlank() ){
+            Checkin iniciador = new Checkin();
+            Salida.setText(iniciador.CheckIn(arbolReservacion, hashTable, CI.getText(), Nro.getText()));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -107,28 +127,30 @@ public class BuscarReservacion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarReservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarReservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarReservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarReservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarReservacion(cargarArchivo).setVisible(true);
+                new CheckIn(cargarArchivo).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CI;
+    private javax.swing.JTextField Nro;
     private javax.swing.JTextArea Salida;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

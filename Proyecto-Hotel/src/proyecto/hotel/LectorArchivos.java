@@ -50,8 +50,7 @@ public class LectorArchivos {
             }
            
             lector.close();
-            arbol.imprimir(arbol.getRoot());
-            return null;
+            return arbol;
         }catch(IOException e){
             return null;
         }
@@ -61,13 +60,8 @@ public class LectorArchivos {
     public registroHash abridorArchivoEstado(){
         String linea;
         try{
-            BufferedReader contador = new BufferedReader(new FileReader("CSV/Estado.csv"));
-            int cuentas = 0;
-            while (contador.readLine() != null) cuentas++;
-            contador.close();
-            
- 
-            registroHash hashTable = new registroHash(cuentas);
+
+            registroHash hashTable = new registroHash(661);
             
             BufferedReader lector = new BufferedReader(new FileReader("CSV/Estado.csv"));
             linea = lector.readLine();

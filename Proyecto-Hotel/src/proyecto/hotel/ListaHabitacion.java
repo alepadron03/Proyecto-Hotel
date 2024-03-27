@@ -196,11 +196,13 @@ public class ListaHabitacion {
        return false;
    }
    
-   public void imprimir(){
+   public String imprimir(){
        Nodo aux = this.pFirst;
+       String completo = "";
        while(aux != null){
-           System.out.println(aux.getDato());
+           completo = (completo +"Nombre: "+ aux.getDato().getNombre() + "\nApellido: " + aux.getDato().getApellido()+ "\n");
            aux = aux.getpNext();
        }
+       return completo;
    }
 }
