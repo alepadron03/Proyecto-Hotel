@@ -77,7 +77,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 100, -1));
 
         volvermenu.setBackground(new java.awt.Color(255, 255, 255));
-        volvermenu.setForeground(new java.awt.Color(255, 255, 255));
+        volvermenu.setForeground(new java.awt.Color(0, 0, 0));
         volvermenu.setText("Volver al menú");
         volvermenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
