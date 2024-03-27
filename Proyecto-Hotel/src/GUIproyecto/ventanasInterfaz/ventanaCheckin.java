@@ -30,6 +30,11 @@ public class ventanaCheckin extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
+        insertarCI = new javax.swing.JTextField();
+        resultadosMensaje = new javax.swing.JScrollPane();
+        mensajeCheckinLabel = new javax.swing.JLabel();
+        botonBuscarCI = new javax.swing.JButton();
+        CILabel = new javax.swing.JLabel();
         CheckInIcono = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -49,15 +54,34 @@ public class ventanaCheckin extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, -1));
+        getContentPane().add(insertarCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 100, -1));
+        getContentPane().add(resultadosMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+
+        mensajeCheckinLabel.setForeground(new java.awt.Color(0, 0, 0));
+        mensajeCheckinLabel.setText("Mensaje");
+        getContentPane().add(mensajeCheckinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        botonBuscarCI.setBackground(new java.awt.Color(0, 153, 204));
+        botonBuscarCI.setText("Buscar");
+        botonBuscarCI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarCIActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBuscarCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 70, -1));
+
+        CILabel.setForeground(new java.awt.Color(0, 0, 0));
+        CILabel.setText("Cédula del huesped");
+        getContentPane().add(CILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         CheckInIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/checkin.png"))); // NOI18N
         CheckInIcono.setText("jLabel1");
-        getContentPane().add(CheckInIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 390, -1));
+        getContentPane().add(CheckInIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 390, -1));
 
         fondodeBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/blanco.png"))); // NOI18N
         fondodeBlanco.setText("jLabel1");
         fondodeBlanco.setPreferredSize(new java.awt.Dimension(400, 300));
-        getContentPane().add(fondodeBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 420, -1));
+        getContentPane().add(fondodeBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 420, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -65,6 +89,11 @@ public class ventanaCheckin extends javax.swing.JFrame {
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonBuscarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarCIActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_botonBuscarCIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,9 +131,14 @@ public class ventanaCheckin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CILabel;
     private javax.swing.JLabel CheckInIcono;
+    private javax.swing.JButton botonBuscarCI;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondodeBlanco;
+    private javax.swing.JTextField insertarCI;
+    private javax.swing.JLabel mensajeCheckinLabel;
+    private javax.swing.JScrollPane resultadosMensaje;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

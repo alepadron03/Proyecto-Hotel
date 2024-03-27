@@ -29,6 +29,11 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
+        cedulaLabel = new javax.swing.JLabel();
+        botonBuscar = new javax.swing.JButton();
+        insertarnumCI = new javax.swing.JTextField();
+        resultadosReservacion = new javax.swing.JScrollPane();
+        reservacionLabel = new javax.swing.JLabel();
         fondoReservas = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -49,9 +54,28 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, -1));
 
+        cedulaLabel.setForeground(new java.awt.Color(0, 0, 0));
+        cedulaLabel.setText("Cédula");
+        getContentPane().add(cedulaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        botonBuscar.setBackground(new java.awt.Color(0, 153, 204));
+        botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 70, -1));
+        getContentPane().add(insertarnumCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 110, 130, -1));
+        getContentPane().add(resultadosReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+
+        reservacionLabel.setForeground(new java.awt.Color(0, 0, 0));
+        reservacionLabel.setText("Reservación");
+        getContentPane().add(reservacionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
         fondoReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/reservaciones_1.png"))); // NOI18N
         fondoReservas.setText("jLabel1");
-        getContentPane().add(fondoReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 370, -1));
+        getContentPane().add(fondoReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 390, -1));
 
         fondodeBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/blanco.png"))); // NOI18N
         fondodeBlanco.setText("jLabel1");
@@ -64,6 +88,10 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,9 +129,14 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel cedulaLabel;
     private javax.swing.JLabel fondoReservas;
     private javax.swing.JLabel fondodeBlanco;
+    private javax.swing.JTextField insertarnumCI;
+    private javax.swing.JLabel reservacionLabel;
+    private javax.swing.JScrollPane resultadosReservacion;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

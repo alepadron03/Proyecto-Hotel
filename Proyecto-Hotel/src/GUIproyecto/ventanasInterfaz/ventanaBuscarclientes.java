@@ -30,6 +30,13 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
+        insertarApellido = new javax.swing.JTextField();
+        resultadosHabitacionaasig = new javax.swing.JScrollPane();
+        apellidoLabel = new javax.swing.JLabel();
+        historialNumhabNomApe = new javax.swing.JLabel();
+        botonBuscarnombreapellido = new javax.swing.JButton();
+        insertarNombre1 = new javax.swing.JTextField();
+        nombreLabel1 = new javax.swing.JLabel();
         fondoClientes = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -49,10 +56,34 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, -1));
+        getContentPane().add(insertarApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 110, -1));
+        getContentPane().add(resultadosHabitacionaasig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+
+        apellidoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        apellidoLabel.setText("Apellido:");
+        getContentPane().add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+
+        historialNumhabNomApe.setForeground(new java.awt.Color(0, 0, 0));
+        historialNumhabNomApe.setText("Número de habitación:");
+        getContentPane().add(historialNumhabNomApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        botonBuscarnombreapellido.setBackground(new java.awt.Color(0, 153, 204));
+        botonBuscarnombreapellido.setText("Buscar");
+        botonBuscarnombreapellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarnombreapellidoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBuscarnombreapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 70, -1));
+        getContentPane().add(insertarNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 100, -1));
+
+        nombreLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        nombreLabel1.setText("Nombre:");
+        getContentPane().add(nombreLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         fondoClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/huespedes_1.png"))); // NOI18N
         fondoClientes.setText("jLabel1");
-        getContentPane().add(fondoClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, -1));
+        getContentPane().add(fondoClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 380, -1));
 
         fondodeBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/blanco.png"))); // NOI18N
         fondodeBlanco.setText("jLabel1");
@@ -65,6 +96,10 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonBuscarnombreapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarnombreapellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonBuscarnombreapellidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,9 +137,16 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel apellidoLabel;
+    private javax.swing.JButton botonBuscarnombreapellido;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoClientes;
     private javax.swing.JLabel fondodeBlanco;
+    private javax.swing.JLabel historialNumhabNomApe;
+    private javax.swing.JTextField insertarApellido;
+    private javax.swing.JTextField insertarNombre1;
+    private javax.swing.JLabel nombreLabel1;
+    private javax.swing.JScrollPane resultadosHabitacionaasig;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,6 +32,11 @@ public class ventanaHistorial extends javax.swing.JFrame {
         fondoBlanco = new javax.swing.JLabel();
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
+        resultadosVariable = new javax.swing.JScrollPane();
+        historialLabel = new javax.swing.JLabel();
+        insertarnumHab = new javax.swing.JTextField();
+        habitacionLabel = new javax.swing.JLabel();
+        botonBuscar = new javax.swing.JButton();
         fondoHistorial = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -54,17 +59,36 @@ public class ventanaHistorial extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, -1));
+        getContentPane().add(resultadosVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+
+        historialLabel.setForeground(new java.awt.Color(0, 0, 0));
+        historialLabel.setText("Historial");
+        getContentPane().add(historialLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(insertarnumHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, -1));
+
+        habitacionLabel.setForeground(new java.awt.Color(0, 0, 0));
+        habitacionLabel.setText("Habitación");
+        getContentPane().add(habitacionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        botonBuscar.setBackground(new java.awt.Color(0, 153, 204));
+        botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 70, -1));
 
         fondoHistorial.setBackground(new java.awt.Color(255, 255, 255));
         fondoHistorial.setForeground(new java.awt.Color(255, 255, 255));
         fondoHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/historial_1.png"))); // NOI18N
         fondoHistorial.setPreferredSize(new java.awt.Dimension(500, 400));
-        getContentPane().add(fondoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, 240));
+        getContentPane().add(fondoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 380, 240));
 
         fondodeBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/blanco.png"))); // NOI18N
         fondodeBlanco.setText("jLabel1");
         fondodeBlanco.setPreferredSize(new java.awt.Dimension(400, 300));
-        getContentPane().add(fondodeBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 410, -1));
+        getContentPane().add(fondodeBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 410, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -72,6 +96,10 @@ public class ventanaHistorial extends javax.swing.JFrame {
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,10 +137,15 @@ public class ventanaHistorial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoBlanco;
     private javax.swing.JLabel fondoHistorial;
     private javax.swing.JLabel fondodeBlanco;
+    private javax.swing.JLabel habitacionLabel;
+    private javax.swing.JLabel historialLabel;
+    private javax.swing.JTextField insertarnumHab;
+    private javax.swing.JScrollPane resultadosVariable;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,6 +29,15 @@ public class ventanaCheckOut extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
+        resultadosMensaje = new javax.swing.JScrollPane();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        registrarseBoton = new javax.swing.JButton();
+        CILabel = new javax.swing.JLabel();
+        apellidoLabel = new javax.swing.JLabel();
+        mensajeCheckoutboton = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
         fondoCheckout = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -48,10 +57,34 @@ public class ventanaCheckOut extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, -1));
+        getContentPane().add(resultadosMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 260, 80));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 100, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 100, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 100, -1));
+
+        registrarseBoton.setBackground(new java.awt.Color(0, 153, 204));
+        registrarseBoton.setText("Registrarse");
+        getContentPane().add(registrarseBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
+
+        CILabel.setForeground(new java.awt.Color(0, 0, 0));
+        CILabel.setText("Cédula");
+        getContentPane().add(CILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+
+        apellidoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        apellidoLabel.setText("Apellido");
+        getContentPane().add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        mensajeCheckoutboton.setForeground(new java.awt.Color(0, 0, 0));
+        mensajeCheckoutboton.setText("Mensaje");
+        getContentPane().add(mensajeCheckoutboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        nombreLabel.setForeground(new java.awt.Color(0, 0, 0));
+        nombreLabel.setText("Nombre");
+        getContentPane().add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         fondoCheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/checkout.png"))); // NOI18N
         fondoCheckout.setText("jLabel1");
-        getContentPane().add(fondoCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, -1));
+        getContentPane().add(fondoCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 380, -1));
 
         fondodeBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/blanco.png"))); // NOI18N
         fondodeBlanco.setText("jLabel1");
@@ -101,9 +134,18 @@ public class ventanaCheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CILabel;
+    private javax.swing.JLabel apellidoLabel;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoCheckout;
     private javax.swing.JLabel fondodeBlanco;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel mensajeCheckoutboton;
+    private javax.swing.JLabel nombreLabel;
+    private javax.swing.JButton registrarseBoton;
+    private javax.swing.JScrollPane resultadosMensaje;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }
