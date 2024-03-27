@@ -14,18 +14,29 @@ import proyecto.hotel.*;
  */
 public class Checkin {
 
-    public String CheckIn(ArbolReservacion Reservacion, registroHash HashTable, String Ci, String Habitacion){
+    public String CheckIn(ArbolReservacion Reservacion, registroHash HashTable, ArrayList existencia, String Ci, String Habitacion){
         
         NodoReser reserva = Reservacion.buscar(Ci);
-        
-        if(reserva == null){
-            return "El cliente no existe";
-        }else{
-            Cliente cliente = reserva.getData();
-            HashTable.insertarHash(Habitacion, cliente.getNombre(), cliente.getApellido());
-            Reservacion.eliminador(Reservacion.getRoot(), Ci);
-            return "El cliente se ha movido";
+        try{
+            int valor = Integer.parseInt(Habitacion);
+            if(reserva == null){
+                return "El cliente no existe";
+            }else if(valor >= existencia.getTamano()){ 
+                return "La habitacion no Existe";
+            }else if(!existencia.cargar(valor).getTipo_Hab().equals(reserva.getData().getTipo_habitacion())){
+                return "La Habitacion no es la correcta para el cliente";
+            }else if(HashTable.buscarOcupacion(Habitacion)){
+                return "La Habitacion ya esta tomada";
+            }else{
+                Cliente cliente = reserva.getData();
+                HashTable.insertarHash(Habitacion, cliente.getNombre(), cliente.getApellido());
+                Reservacion.eliminador(Reservacion.getRoot(), Ci);
+                return "El cliente se ha movido";
+            }
+        }catch(NumberFormatException e){
+            return "La habitacion no es un Numero";
         }
     }
 }
+
 

@@ -4,6 +4,8 @@
  */
 package GUIproyecto.ventanasInterfaz;
 
+import hashtablesPrim.*;
+
 /**
  *
  * @author joseg
@@ -11,6 +13,7 @@ package GUIproyecto.ventanasInterfaz;
 public class ventanaBuscarclientes extends javax.swing.JFrame {
 
     public static Menu1Home vClientes;
+    public registroHash hashTable = Menu1Home.hashTable;
     /**
      * Creates new form ventanaBuscarclientes
      */
@@ -30,12 +33,13 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
-        insertarApellido = new javax.swing.JTextField();
-        resultadosHabitacionaasig = new javax.swing.JScrollPane();
+        Apellido = new javax.swing.JTextField();
         apellidoLabel = new javax.swing.JLabel();
         historialNumhabNomApe = new javax.swing.JLabel();
         botonBuscarnombreapellido = new javax.swing.JButton();
-        insertarNombre1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Salida = new javax.swing.JTextArea();
+        Nombre = new javax.swing.JTextField();
         nombreLabel1 = new javax.swing.JLabel();
         fondoClientes = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
@@ -56,8 +60,7 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, -1));
-        getContentPane().add(insertarApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 110, -1));
-        getContentPane().add(resultadosHabitacionaasig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+        getContentPane().add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 110, -1));
 
         apellidoLabel.setForeground(new java.awt.Color(0, 0, 0));
         apellidoLabel.setText("Apellido:");
@@ -65,7 +68,7 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
 
         historialNumhabNomApe.setForeground(new java.awt.Color(0, 0, 0));
         historialNumhabNomApe.setText("Número de habitación:");
-        getContentPane().add(historialNumhabNomApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(historialNumhabNomApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         botonBuscarnombreapellido.setBackground(new java.awt.Color(0, 153, 204));
         botonBuscarnombreapellido.setText("Buscar");
@@ -75,7 +78,13 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonBuscarnombreapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 70, -1));
-        getContentPane().add(insertarNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 100, -1));
+
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane2.setViewportView(Salida);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 230, 100));
+        getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 100, -1));
 
         nombreLabel1.setForeground(new java.awt.Color(0, 0, 0));
         nombreLabel1.setText("Nombre:");
@@ -98,7 +107,15 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonBuscarnombreapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarnombreapellidoActionPerformed
-        // TODO add your handling code here:
+        if(!Nombre.getText().isBlank() && !Apellido.getText().isBlank()){
+            clientes cliente = hashTable.buscarHash(Nombre.getText(), Apellido.getText());
+            if(cliente == null){
+                Salida.setText("El Cliente no Existe");
+            }else{
+                Salida.setText(cliente.toString());
+            }
+            
+        }
     }//GEN-LAST:event_botonBuscarnombreapellidoActionPerformed
 
     /**
@@ -137,16 +154,17 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Apellido;
+    private javax.swing.JTextField Nombre;
+    private javax.swing.JTextArea Salida;
     private javax.swing.JLabel apellidoLabel;
     private javax.swing.JButton botonBuscarnombreapellido;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoClientes;
     private javax.swing.JLabel fondodeBlanco;
     private javax.swing.JLabel historialNumhabNomApe;
-    private javax.swing.JTextField insertarApellido;
-    private javax.swing.JTextField insertarNombre1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel nombreLabel1;
-    private javax.swing.JScrollPane resultadosHabitacionaasig;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

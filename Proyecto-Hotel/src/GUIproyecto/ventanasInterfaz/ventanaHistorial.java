@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUIproyecto.ventanasInterfaz;
-
+import proyecto.hotel.*;
 /**
  *
  * @author joseg
@@ -15,6 +15,7 @@ public class ventanaHistorial extends javax.swing.JFrame {
      */
     
     public static Menu1Home vHistorial; //se conecta a la interfaz principal
+    public ArbolHabitacion arbolHabitacion = Menu1Home.arbolHabitacion;
     
     public ventanaHistorial(Menu1Home vHistorial) {
         initComponents();
@@ -32,11 +33,12 @@ public class ventanaHistorial extends javax.swing.JFrame {
         fondoBlanco = new javax.swing.JLabel();
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
-        resultadosVariable = new javax.swing.JScrollPane();
         historialLabel = new javax.swing.JLabel();
-        insertarnumHab = new javax.swing.JTextField();
+        Nro = new javax.swing.JTextField();
         habitacionLabel = new javax.swing.JLabel();
         botonBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Salida = new javax.swing.JTextArea();
         fondoHistorial = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
 
@@ -59,12 +61,11 @@ public class ventanaHistorial extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, -1));
-        getContentPane().add(resultadosVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
 
         historialLabel.setForeground(new java.awt.Color(0, 0, 0));
         historialLabel.setText("Historial");
-        getContentPane().add(historialLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
-        getContentPane().add(insertarnumHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, -1));
+        getContentPane().add(historialLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, -1));
 
         habitacionLabel.setForeground(new java.awt.Color(0, 0, 0));
         habitacionLabel.setText("Habitación");
@@ -78,6 +79,12 @@ public class ventanaHistorial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 70, -1));
+
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane1.setViewportView(Salida);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         fondoHistorial.setBackground(new java.awt.Color(255, 255, 255));
         fondoHistorial.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,7 +105,14 @@ public class ventanaHistorial extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        // TODO add your handling code here:
+         if(!Nro.getText().isBlank()){
+            NodoHabitacion Habitacion = arbolHabitacion.buscar(Nro.getText());
+            if(Habitacion == null){
+                Salida.setText("Este Numero de Habitacion no existe o No ha sido utilizado");
+            }else{
+                Salida.setText(Habitacion.getLista().imprimir());
+            }
+        }
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     /**
@@ -137,6 +151,8 @@ public class ventanaHistorial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Nro;
+    private javax.swing.JTextArea Salida;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoBlanco;
@@ -144,8 +160,7 @@ public class ventanaHistorial extends javax.swing.JFrame {
     private javax.swing.JLabel fondodeBlanco;
     private javax.swing.JLabel habitacionLabel;
     private javax.swing.JLabel historialLabel;
-    private javax.swing.JTextField insertarnumHab;
-    private javax.swing.JScrollPane resultadosVariable;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

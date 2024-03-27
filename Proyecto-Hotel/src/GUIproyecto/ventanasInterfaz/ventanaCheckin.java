@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUIproyecto.ventanasInterfaz;
-
+import hashtablesPrim.registroHash;
+import proyecto.hotel.*;
+import CheckInCheckOut.*;
 /**
  *
  * @author joseg
@@ -11,6 +13,11 @@ package GUIproyecto.ventanasInterfaz;
 public class ventanaCheckin extends javax.swing.JFrame {
 
     public static Menu1Home vCheckin;
+    static public ArbolReservacion arbolReservacion = Menu1Home.arbolReservacion;
+    static public registroHash hashTable = Menu1Home.hashTable;
+    static public ArrayList lista = Menu1Home.habitaciones;
+    
+    
     /**
      * Creates new form ventanaCheckin
      */
@@ -30,10 +37,13 @@ public class ventanaCheckin extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
-        insertarCI = new javax.swing.JTextField();
-        resultadosMensaje = new javax.swing.JScrollPane();
+        CI = new javax.swing.JTextField();
         mensajeCheckinLabel = new javax.swing.JLabel();
         botonBuscarCI = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Salida = new javax.swing.JTextArea();
+        Nro = new javax.swing.JTextField();
+        CILabel1 = new javax.swing.JLabel();
         CILabel = new javax.swing.JLabel();
         CheckInIcono = new javax.swing.JLabel();
         fondodeBlanco = new javax.swing.JLabel();
@@ -54,25 +64,35 @@ public class ventanaCheckin extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, -1));
-        getContentPane().add(insertarCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 100, -1));
-        getContentPane().add(resultadosMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 70));
+        getContentPane().add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, -1));
 
         mensajeCheckinLabel.setForeground(new java.awt.Color(0, 0, 0));
         mensajeCheckinLabel.setText("Mensaje");
-        getContentPane().add(mensajeCheckinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(mensajeCheckinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         botonBuscarCI.setBackground(new java.awt.Color(0, 153, 204));
-        botonBuscarCI.setText("Buscar");
+        botonBuscarCI.setText("Agregar");
         botonBuscarCI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarCIActionPerformed(evt);
             }
         });
-        getContentPane().add(botonBuscarCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 70, -1));
+        getContentPane().add(botonBuscarCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 100, -1));
+
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane1.setViewportView(Salida);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        getContentPane().add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 100, -1));
+
+        CILabel1.setForeground(new java.awt.Color(0, 0, 0));
+        CILabel1.setText("Nro. de Habitacion");
+        getContentPane().add(CILabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         CILabel.setForeground(new java.awt.Color(0, 0, 0));
         CILabel.setText("Cédula del huesped");
-        getContentPane().add(CILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        getContentPane().add(CILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         CheckInIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/checkin.png"))); // NOI18N
         CheckInIcono.setText("jLabel1");
@@ -91,8 +111,10 @@ public class ventanaCheckin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonBuscarCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarCIActionPerformed
-        // TODO add your handling code here:
-        
+        if(!CI.getText().isBlank() || !Nro.getText().isBlank() ){
+            Checkin iniciador = new Checkin();
+            Salida.setText(iniciador.CheckIn(arbolReservacion, hashTable,lista, CI.getText(), Nro.getText()));
+        }
     }//GEN-LAST:event_botonBuscarCIActionPerformed
 
     /**
@@ -131,14 +153,17 @@ public class ventanaCheckin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CI;
     private javax.swing.JLabel CILabel;
+    private javax.swing.JLabel CILabel1;
     private javax.swing.JLabel CheckInIcono;
+    private javax.swing.JTextField Nro;
+    private javax.swing.JTextArea Salida;
     private javax.swing.JButton botonBuscarCI;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondodeBlanco;
-    private javax.swing.JTextField insertarCI;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mensajeCheckinLabel;
-    private javax.swing.JScrollPane resultadosMensaje;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

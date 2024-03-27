@@ -3,13 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUIproyecto.ventanasInterfaz;
-
+import hashtablesPrim.*;
+import proyecto.hotel.*;
+import CheckInCheckOut.*;
 /**
  *
  * @author joseg
  */
 public class ventanaCheckOut extends javax.swing.JFrame {
     public static Menu1Home vCheckout;
+    static public registroHash hashTable = Menu1Home.hashTable;
+    static public ArbolHabitacion arbolHabitacion = Menu1Home.arbolHabitacion;
+    
+    
     /**
      * Creates new form ventanaCheckOut
      */
@@ -29,13 +35,12 @@ public class ventanaCheckOut extends javax.swing.JFrame {
 
         botonVolver = new javax.swing.JButton();
         tiraAzul = new javax.swing.JLabel();
-        resultadosMensaje = new javax.swing.JScrollPane();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
+        Apellido = new javax.swing.JTextField();
         registrarseBoton = new javax.swing.JButton();
-        CILabel = new javax.swing.JLabel();
         apellidoLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Salida = new javax.swing.JTextArea();
         mensajeCheckoutboton = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         fondoCheckout = new javax.swing.JLabel();
@@ -57,26 +62,31 @@ public class ventanaCheckOut extends javax.swing.JFrame {
         tiraAzul.setText("jLabel1");
         tiraAzul.setPreferredSize(new java.awt.Dimension(210, 300));
         getContentPane().add(tiraAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, -1));
-        getContentPane().add(resultadosMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 260, 80));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 100, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 100, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 100, -1));
+        getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 100, -1));
+        getContentPane().add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 100, -1));
 
         registrarseBoton.setBackground(new java.awt.Color(0, 153, 204));
-        registrarseBoton.setText("Registrarse");
-        getContentPane().add(registrarseBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
-
-        CILabel.setForeground(new java.awt.Color(0, 0, 0));
-        CILabel.setText("Cédula");
-        getContentPane().add(CILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+        registrarseBoton.setText("Terminar Estadia");
+        registrarseBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarseBotonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registrarseBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         apellidoLabel.setForeground(new java.awt.Color(0, 0, 0));
         apellidoLabel.setText("Apellido");
         getContentPane().add(apellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane1.setViewportView(Salida);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
         mensajeCheckoutboton.setForeground(new java.awt.Color(0, 0, 0));
         mensajeCheckoutboton.setText("Mensaje");
-        getContentPane().add(mensajeCheckoutboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(mensajeCheckoutboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         nombreLabel.setForeground(new java.awt.Color(0, 0, 0));
         nombreLabel.setText("Nombre");
@@ -97,6 +107,13 @@ public class ventanaCheckOut extends javax.swing.JFrame {
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void registrarseBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseBotonActionPerformed
+       if(!Apellido.getText().isBlank() || !Nombre.getText().isBlank() ){
+            Checkout iniciador = new Checkout();
+            Salida.setText(iniciador.CheckOut(arbolHabitacion, hashTable, Nombre.getText(), Apellido.getText()));
+        }
+    }//GEN-LAST:event_registrarseBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,18 +151,17 @@ public class ventanaCheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CILabel;
+    private javax.swing.JTextField Apellido;
+    private javax.swing.JTextField Nombre;
+    private javax.swing.JTextArea Salida;
     private javax.swing.JLabel apellidoLabel;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel fondoCheckout;
     private javax.swing.JLabel fondodeBlanco;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mensajeCheckoutboton;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JButton registrarseBoton;
-    private javax.swing.JScrollPane resultadosMensaje;
     private javax.swing.JLabel tiraAzul;
     // End of variables declaration//GEN-END:variables
 }

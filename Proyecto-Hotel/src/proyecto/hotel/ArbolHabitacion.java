@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package proyecto.hotel;
-import java.util.*;
+
 /**
  *
  * @author alexp
@@ -37,11 +37,11 @@ public class ArbolHabitacion {
             insertar(Root, data);
         }
     }
-    public void insertar(NodoHabitacion Root, Habitacion data){
+    public NodoHabitacion insertar(NodoHabitacion Root, Habitacion data){
         NodoHabitacion newNodo = new NodoHabitacion(data);
         
         if(esVacio()){
-            this.Root=newNodo;
+            return newNodo;
         }
         else{
             if(Root.getNroHab().compareTo(newNodo.getNroHab())>0){
@@ -58,54 +58,78 @@ public class ArbolHabitacion {
                     insertar(Root.getHijoDer(),data);
                 }
             }else{
-                 Root.getLista().InsertarFinal(data);   
+                 Root.getLista().InsertarFinal(data); 
+//                 return Root;
             }
         }
+        return rebalance(Root);
     }
     
 
-//    
-//    public int altura(NodoHabitacion node) {
-//        if (node == null) {
-//            return 0;
-//        } else {
-//            return Math.max(altura(node.getHijoIzq()), altura(node.getHijoDer())) + 1;
-//        }
-//    }
-//  
-//    public NodoHabitacion rotarDerecha(NodoHabitacion y) {
-//        NodoHabitacion x = y.getHijoIzq();
-//        NodoHabitacion T2 = x.getHijoDer();
-//        x.setHijoDer(y);
-//        y.setHijoIzq(T2);
-//
-//        y.setAltura(Math.max(altura(y.getHijoIzq()), altura(y.getHijoDer())) + 1);
-//        x.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
-//        return x;
-//    }
-//     public NodoHabitacion rotarIzquierda(NodoHabitacion x) {
-//        NodoHabitacion y = x.getHijoIzq();
-//        NodoHabitacion T2 = y.getHijoDer();
-//        y.setHijoIzq(x);
-//        x.setHijoDer(T2);
-//        x.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
-//        y.setAltura(Math.max(altura(x.getHijoIzq()), altura(x.getHijoDer())) + 1);
-//        return y;
-//    }
-//    
-//    public boolean isBalanced(NodoHabitacion node) {
-//        if (node == null) {
-//            return true;
-//        }
-//
-//        int leftHeight = altura(node.getHijoIzq());
-//        int rightHeight = altura(node.getHijoDer());
-//
-//        return Math.abs(leftHeight - rightHeight) <= 1 
-//            && isBalanced(node.getHijoIzq())
-//            && isBalanced(node.getHijoDer());
-//    }
-//    
+    
+    public int altura(NodoHabitacion node) {
+        if (node == null) {
+            return -1;
+        } else {
+            return node.getAltura();
+        }
+    }
+    
+    public void actualizarAltura(NodoHabitacion nodo){
+        nodo.setAltura(1 + Math.max(altura(nodo.getHijoIzq()), altura(nodo.getHijoDer())));
+    }
+    
+  
+    public NodoHabitacion rotarDerecha(NodoHabitacion y) {
+        NodoHabitacion x = y.getHijoIzq();
+        NodoHabitacion T2 = x.getHijoDer();
+        x.setHijoDer(y);
+        y.setHijoIzq(T2);
+
+        actualizarAltura(y);
+        actualizarAltura(x);
+        return x;
+    }
+     public NodoHabitacion rotarIzquierda(NodoHabitacion x) {
+        NodoHabitacion y = x.getHijoIzq();
+        NodoHabitacion T2 = y.getHijoDer();
+        y.setHijoIzq(x);
+        x.setHijoDer(T2);
+        
+        actualizarAltura(y);
+        actualizarAltura(x);
+        return y;
+    }
+    
+    public int balance(NodoHabitacion nodo){
+        if (nodo == null){
+            return 0;
+        }else{
+            return altura(nodo.getHijoDer()) - altura(nodo.getHijoIzq());
+        }
+    }
+    
+    public NodoHabitacion rebalance(NodoHabitacion nodo){
+        nodo.setAltura(altura(nodo));
+        int balance = balance(nodo);
+        if(balance > 1){
+            if(altura(nodo.getHijoDer().getHijoDer()) > altura(nodo.getHijoDer().getHijoIzq())){
+                nodo = rotarIzquierda(nodo);
+            }else{
+                nodo.setHijoDer(rotarDerecha(nodo.getHijoDer()));
+                nodo = rotarIzquierda(nodo);
+            }
+        }else if(balance > 1){
+            if(altura(nodo.getHijoIzq().getHijoIzq()) > altura(nodo.getHijoIzq().getHijoDer())){
+                nodo = rotarDerecha(nodo);
+            }else{
+                nodo.setHijoIzq(rotarIzquierda(nodo.getHijoIzq()));
+                nodo = rotarDerecha(nodo);
+            }
+        }
+        return nodo;
+    }
+    
     
     
     public void imprimir(NodoHabitacion nodo){

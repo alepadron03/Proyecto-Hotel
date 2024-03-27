@@ -36,7 +36,7 @@ public class LectorArchivos {
     }
     
 
-        public ArbolHabitacion abridorArchivoHistorico(){
+    public ArbolHabitacion abridorArchivoHistorico(){
         String linea;
         ArbolHabitacion arbol = new ArbolHabitacion();
         
@@ -46,7 +46,7 @@ public class LectorArchivos {
             while((linea = lector.readLine()) != null){
                 String[] fila = linea.split(",");
                 Habitacion habitacion = new Habitacion(fila);
-                arbol.insertar(habitacion);
+                arbol.setRoot(arbol.insertar(arbol.getRoot(), habitacion));
             }
            
             lector.close();
@@ -72,7 +72,29 @@ public class LectorArchivos {
                 }
                 hashTable.insertarHash(fila[0], fila[1], fila[2]);     
             }
+            lector.close();
             return hashTable;
+            
+        }catch(IOException e){
+            return null;
+        }
+    }
+    
+    
+    public ArrayList abridorArchivoHabitaciones(){
+        String linea;
+        try{
+            
+            ArrayList Lista = new ArrayList();
+            BufferedReader lector2 = new BufferedReader(new FileReader("CSV/Habitaciones.csv"));
+            while((linea = lector2.readLine()) != null){
+                String[] fila = linea.split(",");
+                Habitaciones habitacion = new Habitaciones(fila);
+                Lista.agregar(habitacion);
+            }
+            lector2.close();
+            return Lista;
+            
             
         }catch(IOException e){
             return null;

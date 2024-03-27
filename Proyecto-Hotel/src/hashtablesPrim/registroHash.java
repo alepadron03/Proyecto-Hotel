@@ -60,4 +60,23 @@ public class registroHash {
             System.out.println(this.clientes[i].imprimir()); //no confundir clase CLIENTES con lista CLIENTES.
         }
     }
+    
+    public Boolean buscarOcupacion(String NroHab){
+        Boolean existencia;
+        for (int i = 0; i < clientes.length; i++) {
+            existencia = clientes[i].BuscarOcupacion(NroHab);
+            if (existencia == true){
+                return true;
+            }
+        }
+        return false; 
+    }
+    public Lista[] getClientes() {
+        return clientes;
+    }
+
+    public int getTamaño() {
+        return tamaño;
+    }
+    
 }

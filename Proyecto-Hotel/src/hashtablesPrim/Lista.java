@@ -109,4 +109,16 @@ public class Lista{
         }
         return S;
     }
+    
+    public Boolean BuscarOcupacion(String NroHab){
+        clientes aux = this.primero;
+        
+        while(aux != null){
+            if(aux.numHab.equals(NroHab)){
+                return true;
+            }
+            aux = aux.siguiente;
+        }
+        return false;
+    }
 }

@@ -4,12 +4,19 @@
  */
 package GUIproyecto.ventanasInterfaz;
 
+import hashtablesPrim.*;
+import proyecto.hotel.*;
+
 /**
  *
  * @author joseg
  */
 public class Menu1Home extends javax.swing.JFrame {
     public static Menu1Home vMenu1;
+    static public ArbolHabitacion arbolHabitacion;
+    static public ArbolReservacion arbolReservacion;
+    static public registroHash hashTable;
+    static public ArrayList habitaciones;
     /**
      * Creates new form Menu1
      */
@@ -17,6 +24,12 @@ public class Menu1Home extends javax.swing.JFrame {
         initComponents();
         this.vMenu1=vMenu1;
         this.setVisible(true);
+        LectorArchivos lector = new LectorArchivos();
+        if(arbolHabitacion == null || arbolReservacion == null || hashTable == null || habitaciones == null);
+            arbolHabitacion = lector.abridorArchivoHistorico();
+            arbolReservacion = lector.abridorArchivoReservas();
+            hashTable = lector.abridorArchivoEstado();
+            habitaciones = lector.abridorArchivoHabitaciones();
     }
 
     /**
