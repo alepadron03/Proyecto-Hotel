@@ -4,13 +4,16 @@
  */
 package CheckInCheckOut;
 
+
 import hashtablesPrim.*;
 import proyecto.hotel.*;
+
 
 /**
  *
  * @author joseg
  */
+
 public class Checkout {
     
         public String CheckOut(ArbolHabitacion Habitacion, registroHash HashTable, String Nombre, String Apellido){

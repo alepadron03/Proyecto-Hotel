@@ -12,7 +12,8 @@ public class Habitacion {
     private String nombre;
     private String apellido;
     private String num_hab;
-
+    public boolean ocupado;
+    
     public Habitacion(String[] dato) {
         this.nombre = dato[1];
         this.apellido = dato[2];
@@ -23,6 +24,7 @@ public class Habitacion {
         this.nombre = Nombre;
         this.apellido = Apellido;
         this.num_hab = numHab;     
+        
     }
 
 
@@ -54,7 +56,7 @@ public class Habitacion {
         return("\nNombre y Apellido: " + this.nombre + " " + this.apellido + "\nNumHab: " + this.num_hab);
     }
 }
-    
+
     
     
 

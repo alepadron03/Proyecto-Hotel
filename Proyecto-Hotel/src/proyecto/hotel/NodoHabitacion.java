@@ -15,6 +15,8 @@ public class NodoHabitacion {
     private ListaHabitacion Lista;
     private int altura;
 
+ 
+
     public NodoHabitacion(Habitacion data) {
         this.hijoIzq = null;
         this.hijoDer = null;

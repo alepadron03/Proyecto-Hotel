@@ -126,6 +126,7 @@ public class ArbolReservacion {
         }
     }
     
+    
     public void preorden(NodoReser Root){
         if(Root!=null){
             System.out.println(Root.getData() +",");
