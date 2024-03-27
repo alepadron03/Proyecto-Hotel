@@ -4,23 +4,22 @@
  */
 package interfaz;
 
-import CheckInCheckOut.Checkin;
-import hashtablesPrim.registroHash;
+import hashtablesPrim.*;
 import proyecto.hotel.*;
+import CheckInCheckOut.*;
 
 /**
  *
  * @author CMGamer
  */
-public class CheckIn extends javax.swing.JFrame {
+public class CheckO extends javax.swing.JFrame {
 
-    
-    
     public static MenuPrincipal cargarArchivo;
-    static public ArbolReservacion arbolReservacion = MenuPrincipal.arbolReservacion;
     static public registroHash hashTable = MenuPrincipal.hashTable;
+    static public ArbolHabitacion arbolHabitacion = MenuPrincipal.arbolHabitacion;
     
-    public CheckIn(MenuPrincipal cargarArchivo) {
+    
+    public CheckO(MenuPrincipal cargarArchivo) {
         initComponents();
     }
 
@@ -34,40 +33,60 @@ public class CheckIn extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Nombre = new javax.swing.JTextField();
+        Apellido = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        Nro = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Salida = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        CI = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        imagencheckin = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        imagencheckout = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel1.setText("Checkout");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, -1));
+
+        Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.setForeground(new java.awt.Color(0, 0, 0));
+        Nombre.setText("Nombre");
+        Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 130, -1));
+
+        Apellido.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido.setForeground(new java.awt.Color(0, 0, 0));
+        Apellido.setText("Apellido");
+        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 130, -1));
+
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Mover");
+        jButton1.setText("Terminar Estadia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 170, 120, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, 30));
 
-        Nro.setBackground(new java.awt.Color(255, 255, 255));
-        Nro.setForeground(new java.awt.Color(0, 0, 0));
-        Nro.setText("Numero Hab");
-        Nro.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Revisar Estado");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NroActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 140, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         Salida.setBackground(new java.awt.Color(255, 255, 255));
         Salida.setColumns(20);
@@ -75,26 +94,7 @@ public class CheckIn extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 370, 80));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jLabel1.setText("CheckIn");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 140, -1));
-
-        CI.setBackground(new java.awt.Color(255, 255, 255));
-        CI.setForeground(new java.awt.Color(0, 0, 0));
-        CI.setText("Cedula");
-        jPanel1.add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, -1));
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Revisar Reserva");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 330, 90));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -104,42 +104,47 @@ public class CheckIn extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
-        imagencheckin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IcheckIN.png"))); // NOI18N
-        jPanel1.add(imagencheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 560, 460));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        jLabel2.setText("Ingrese el nombre y el apellido del cliente");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 270, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 460));
+        imagencheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IchechOut.png"))); // NOI18N
+        jPanel1.add(imagencheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 570, 490));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NroActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(!CI.getText().isBlank()){
-            NodoReser cliente = arbolReservacion.buscar(CI.getText());
-            if(cliente == null){
-                Salida.setText("Esta Cedula no Existe en las reservas");
-            }else{
-                Salida.setText(cliente.getData().toString());
-            }
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!CI.getText().isBlank() || !Nro.getText().isBlank() ){
-            Checkin iniciador = new Checkin();
-            Salida.setText(iniciador.CheckIn(arbolReservacion, hashTable, CI.getText(), Nro.getText()));
+        if(!Apellido.getText().isBlank() || !Nombre.getText().isBlank() ){
+            Checkout iniciador = new Checkout();
+            iniciador.CheckOut(arbolHabitacion, hashTable, Nombre.getText(), Apellido.getText());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(!Nombre.getText().isBlank() && !Apellido.getText().isBlank()){
+            clientes cliente = hashTable.buscarHash(Nombre.getText(), Apellido.getText());
+            if(cliente == null){
+                Salida.setText("El Cliente no Existe");
+            }else{
+                Salida.setText(cliente.toString());
+            }
+            
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
         cargarArchivo.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,33 +163,35 @@ public class CheckIn extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CheckO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckIn(cargarArchivo).setVisible(true);
+                new CheckO(cargarArchivo).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CI;
-    private javax.swing.JTextField Nro;
+    private javax.swing.JTextField Apellido;
+    private javax.swing.JTextField Nombre;
     private javax.swing.JTextArea Salida;
-    private javax.swing.JLabel imagencheckin;
+    private javax.swing.JLabel imagencheckout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

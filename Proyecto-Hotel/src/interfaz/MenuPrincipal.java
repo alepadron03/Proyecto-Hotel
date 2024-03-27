@@ -137,12 +137,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_HistorialReservacionActionPerformed
 
     private void CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInActionPerformed
-        CheckIn ventana4 = new CheckIn(MenuPrincipal);
+        CheckI ventana4 = new CheckI(MenuPrincipal);
         ventana4.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_CheckInActionPerformed
 
     private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
-        CheckOut ventana5 = new CheckOut(MenuPrincipal);
+        CheckO ventana5 = new CheckO(MenuPrincipal);
         ventana5.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_CheckoutActionPerformed
 
