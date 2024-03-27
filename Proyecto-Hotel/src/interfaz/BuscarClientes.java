@@ -60,12 +60,10 @@ public class BuscarClientes extends javax.swing.JFrame {
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
         Nombre.setForeground(new java.awt.Color(0, 0, 0));
-        Nombre.setText("Nombre");
         jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 180, -1));
 
         Apellido.setBackground(new java.awt.Color(255, 255, 255));
         Apellido.setForeground(new java.awt.Color(0, 0, 0));
-        Apellido.setText("Apellido");
         jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 180, -1));
 
         Salida.setBackground(new java.awt.Color(255, 255, 255));
@@ -116,7 +114,6 @@ public class BuscarClientes extends javax.swing.JFrame {
 
     private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
         this.setVisible(false);
-        cargarArchivo.setVisible(true);
     }//GEN-LAST:event_volvermenuActionPerformed
 
     /**

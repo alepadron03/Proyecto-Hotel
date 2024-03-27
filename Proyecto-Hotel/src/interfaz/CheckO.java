@@ -55,7 +55,6 @@ public class CheckO extends javax.swing.JFrame {
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
         Nombre.setForeground(new java.awt.Color(0, 0, 0));
-        Nombre.setText("Nombre");
         Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreActionPerformed(evt);
@@ -65,7 +64,6 @@ public class CheckO extends javax.swing.JFrame {
 
         Apellido.setBackground(new java.awt.Color(255, 255, 255));
         Apellido.setForeground(new java.awt.Color(0, 0, 0));
-        Apellido.setText("Apellido");
         jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 130, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,7 +137,6 @@ public class CheckO extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        cargarArchivo.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed

@@ -61,7 +61,6 @@ public class CheckI extends javax.swing.JFrame {
 
         Nro.setBackground(new java.awt.Color(255, 255, 255));
         Nro.setForeground(new java.awt.Color(0, 0, 0));
-        Nro.setText("Numero Hab");
         Nro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NroActionPerformed(evt);
@@ -83,7 +82,6 @@ public class CheckI extends javax.swing.JFrame {
 
         CI.setBackground(new java.awt.Color(255, 255, 255));
         CI.setForeground(new java.awt.Color(0, 0, 0));
-        CI.setText("Cedula");
         jPanel1.add(CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,7 +136,6 @@ public class CheckI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        cargarArchivo.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

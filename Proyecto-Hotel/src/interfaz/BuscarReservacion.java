@@ -48,7 +48,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
         CI.setBackground(new java.awt.Color(255, 255, 255));
         CI.setForeground(new java.awt.Color(0, 0, 0));
-        CI.setText("CI");
         CI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CIActionPerformed(evt);
@@ -119,7 +118,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
     private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
         this.setVisible(false);
-        cargarArchivo.setVisible(true);
     }//GEN-LAST:event_volvermenuActionPerformed
 
     /**

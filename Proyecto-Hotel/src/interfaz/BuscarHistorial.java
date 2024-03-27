@@ -71,7 +71,6 @@ public class BuscarHistorial extends javax.swing.JFrame {
 
         Nro.setBackground(new java.awt.Color(255, 255, 255));
         Nro.setForeground(new java.awt.Color(0, 0, 0));
-        Nro.setText("Nro Hab");
         jPanel1.add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 150, 30));
 
         volvermenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -112,7 +111,6 @@ public class BuscarHistorial extends javax.swing.JFrame {
 
     private void volvermenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volvermenuActionPerformed
         this.setVisible(false);
-        cargarArchivo.setVisible(true);
     }//GEN-LAST:event_volvermenuActionPerformed
 
     /**
