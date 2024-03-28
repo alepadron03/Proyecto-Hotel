@@ -20,7 +20,7 @@ public class Checkin {
         try{
             int valor = Integer.parseInt(Habitacion);
             if(reserva == null){
-                return "El cliente no esta dentro de la lista de reservas";
+                return "El cliente no esta dentro de la lista de reservas, el formato es con puntos, Ej. 18.383.175";
             }else if(valor >= existencia.getTamano()){ 
                 return "La habitacion no esta dentro de la lista de habitaciones";
             }else if(!existencia.cargar(valor).getTipo_Hab().equals(reserva.getData().getTipo_habitacion())){
