@@ -100,7 +100,7 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
         if(!CI.getText().isBlank()){
             NodoReser cliente = arbolReservacion.buscar(CI.getText());
             if(cliente == null){
-                Salida.setText("Esta Cedula no Existe en las reservas");
+                Salida.setText("Esta Cedula no Existe en las reservas, el formato contiene los puntos, ej: 18.383.175");
             }else{
                 Salida.setText(cliente.getData().toString());
             }
