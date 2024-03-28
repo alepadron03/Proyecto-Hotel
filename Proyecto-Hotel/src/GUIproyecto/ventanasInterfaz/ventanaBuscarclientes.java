@@ -83,7 +83,7 @@ public class ventanaBuscarclientes extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane2.setViewportView(Salida);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 230, 100));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 310, 100));
         getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 100, -1));
 
         nombreLabel1.setForeground(new java.awt.Color(0, 0, 0));

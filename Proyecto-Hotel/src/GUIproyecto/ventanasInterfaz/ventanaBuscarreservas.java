@@ -78,7 +78,7 @@ public class ventanaBuscarreservas extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, -1));
 
         fondoReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIproyecto/imagenesGUI/reservaciones_1.png"))); // NOI18N
         fondoReservas.setText("jLabel1");

@@ -86,7 +86,7 @@ public class Menu1Home extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
         jLabel3.setText("Hotel Booking");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         checkoutBoton.setBackground(new java.awt.Color(0, 153, 204));
         checkoutBoton.setText("Check-out");

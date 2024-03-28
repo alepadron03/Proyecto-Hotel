@@ -82,7 +82,7 @@ public class ventanaCheckOut extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 320, -1));
 
         mensajeCheckoutboton.setForeground(new java.awt.Color(0, 0, 0));
         mensajeCheckoutboton.setText("Mensaje");

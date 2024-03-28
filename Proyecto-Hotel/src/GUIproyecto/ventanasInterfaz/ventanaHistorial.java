@@ -84,7 +84,7 @@ public class ventanaHistorial extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 320, -1));
 
         fondoHistorial.setBackground(new java.awt.Color(255, 255, 255));
         fondoHistorial.setForeground(new java.awt.Color(255, 255, 255));

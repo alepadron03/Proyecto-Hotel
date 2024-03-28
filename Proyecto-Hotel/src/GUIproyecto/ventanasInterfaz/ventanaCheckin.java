@@ -83,7 +83,7 @@ public class ventanaCheckin extends javax.swing.JFrame {
         Salida.setRows(5);
         jScrollPane1.setViewportView(Salida);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 300, -1));
         getContentPane().add(Nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 100, -1));
 
         CILabel1.setForeground(new java.awt.Color(0, 0, 0));

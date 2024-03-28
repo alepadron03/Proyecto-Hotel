@@ -20,21 +20,21 @@ public class Checkin {
         try{
             int valor = Integer.parseInt(Habitacion);
             if(reserva == null){
-                return "El cliente no existe";
+                return "El cliente no esta dentro de la lista de reservas";
             }else if(valor >= existencia.getTamano()){ 
-                return "La habitacion no Existe";
+                return "La habitacion no esta dentro de la lista de habitaciones";
             }else if(!existencia.cargar(valor).getTipo_Hab().equals(reserva.getData().getTipo_habitacion())){
-                return "La Habitacion no es la correcta para el cliente";
+                return "El tipo de habitacion no es la correcta para el cliente";
             }else if(HashTable.buscarOcupacion(Habitacion)){
-                return "La Habitacion ya esta tomada";
+                return "La Habitacion ya esta ocupada por otro cliente";
             }else{
                 Cliente cliente = reserva.getData();
                 HashTable.insertarHash(Habitacion, cliente.getNombre(), cliente.getApellido());
                 Reservacion.eliminador(Reservacion.getRoot(), Ci);
-                return "El cliente se ha movido";
+                return "El cliente se ha puesto en la lista de Estadias exitosamente :D";
             }
         }catch(NumberFormatException e){
-            return "La habitacion no es un Numero";
+            return "El numero de habitacion no es un numero";
         }
     }
 }

@@ -22,12 +22,12 @@ public class Checkout {
         
         
         if(cliente == null){
-            return "El cliente no existe";
+            return "El cliente no esta dentro de la lista de Estadias";
         }else{
             Habitacion data = new Habitacion(cliente.getNombre(),cliente.getApellido(),cliente.getNumHab());
             HashTable.eliminarHash(Nombre, Apellido);
             Habitacion.insertar(data);
-            return "El cliente se ha movido";
+            return "El cliente se ha movido al historial de la habitacion";
         }
     }
 }
