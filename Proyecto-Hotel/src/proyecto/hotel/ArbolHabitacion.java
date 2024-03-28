@@ -37,6 +37,7 @@ public class ArbolHabitacion {
             insertar(Root, data);
         }
     }
+    
     public NodoHabitacion insertar(NodoHabitacion Root, Habitacion data){
         NodoHabitacion newNodo = new NodoHabitacion(data);
         
@@ -59,7 +60,6 @@ public class ArbolHabitacion {
                 }
             }else{
                  Root.getLista().InsertarFinal(data); 
-//                 return Root;
             }
         }
         return rebalance(Root);

@@ -36,9 +36,9 @@ public class ArbolReservacion {
         }
     }
                 
-    public void insertador(NodoReser Root, NodoReser newNodo){
+    public NodoReser insertador(NodoReser Root, NodoReser newNodo){
         if(esVacio()){
-            this.Root=newNodo;
+            return newNodo;
             
         }else{
             if(Root.getData().getCi().compareTo(newNodo.getData().getCi()) > 0){
@@ -58,47 +58,112 @@ public class ArbolReservacion {
                 System.out.println("El elemento ya se encuentra en el arbol");
             }
         }
-        
+        return rebalance(Root);
     }
+    
+    public int altura(NodoReser node) {
+        if (node == null) {
+            return -1;
+        } else {
+            return node.getAltura();
+        }
+    }
+    
+    public void actualizarAltura(NodoReser nodo){
+        nodo.setAltura(1 + Math.max(altura(nodo.getHijoIzq()), altura(nodo.getHijoDer())));
+    }
+    
+    
+    public NodoReser rotarDerecha(NodoReser y) {
+        NodoReser x = y.getHijoIzq();
+        NodoReser T2 = x.getHijoDer();
+        x.setHijoDer(y);
+        y.setHijoIzq(T2);
+
+        actualizarAltura(y);
+        actualizarAltura(x);
+        return x;
+    }
+     public NodoReser rotarIzquierda(NodoReser x) {
+        NodoReser y = x.getHijoIzq();
+        NodoReser T2 = y.getHijoDer();
+        y.setHijoIzq(x);
+        x.setHijoDer(T2);
+        
+        actualizarAltura(y);
+        actualizarAltura(x);
+        return y;
+    }    
+    
+    public int balance(NodoReser nodo){
+        if (nodo == null){
+            return 0;
+        }else{
+            return altura(nodo.getHijoDer()) - altura(nodo.getHijoIzq());
+        }
+    }
+    
+    public NodoReser rebalance(NodoReser nodo){
+        nodo.setAltura(altura(nodo));
+        int balance = balance(nodo);
+        if(balance > 1){
+            if(altura(nodo.getHijoDer().getHijoDer()) > altura(nodo.getHijoDer().getHijoIzq())){
+                nodo = rotarIzquierda(nodo);
+            }else{
+                nodo.setHijoDer(rotarDerecha(nodo.getHijoDer()));
+                nodo = rotarIzquierda(nodo);
+            }
+        }else if(balance > 1){
+            if(altura(nodo.getHijoIzq().getHijoIzq()) > altura(nodo.getHijoIzq().getHijoDer())){
+                nodo = rotarDerecha(nodo);
+            }else{
+                nodo.setHijoIzq(rotarIzquierda(nodo.getHijoIzq()));
+                nodo = rotarDerecha(nodo);
+            }
+        }
+        return nodo;
+    }    
+    
+    
+
     
     public NodoReser eliminador(NodoReser Root, String CI){
         if (Root == null){
             return Root;
-        }
-        
-        if(Root.getData().getCi().compareTo(CI) > 0){
+        }else if(Root.getData().getCi().compareTo(CI) > 0){
             Root.setHijoIzq(eliminador(Root.getHijoIzq(), CI));
-            return Root;
         }else if(Root.getData().getCi().compareTo(CI) > 0){
             Root.setHijoDer(eliminador(Root.getHijoDer(), CI));
-            return Root;
-        }
-        
-        if(Root.getHijoIzq() == null){
-            NodoReser aux = Root.getHijoDer();
-            return aux;
-        }else if(Root.getHijoDer() == null){
-            NodoReser aux = Root.getHijoIzq();
-            return aux;
         }else{
-            NodoReser succesoral = Root;
-            
-            NodoReser succesorado = Root.getHijoDer();
-            
-            while(succesorado.getHijoIzq() != null){
-                succesoral = succesorado;
-                succesorado = succesorado.getHijoIzq();
-            }
-            
-            if(succesoral != Root){
-               succesoral.setHijoIzq(succesorado.getHijoDer());
+            if(Root.getHijoIzq() == null){
+                Root = Root.getHijoDer();
+            }else if(Root.getHijoDer() == null){
+                Root = Root.getHijoIzq();
+ 
             }else{
-                succesoral.setHijoDer(succesorado.getHijoIzq());
+                
+                NodoReser succesoral = Root;
+
+                NodoReser succesorado = Root.getHijoDer();
+
+                while(succesorado.getHijoIzq() != null){
+                    succesoral = succesorado;
+                    succesorado = succesorado.getHijoIzq();
+                }
+
+                if(succesoral != Root){
+                   succesoral.setHijoIzq(succesorado.getHijoDer());
+                }else{
+                    succesoral.setHijoDer(succesorado.getHijoIzq());
+                }
+                Root.setData(succesorado.getData());
+                
             }
-            
-            Root.setData(succesorado.getData());
-            return Root;         
         }
+        if(Root != null){
+            Root = rebalance(Root);
+        }
+        return Root;
     }
     
     public NodoReser buscar(String data){

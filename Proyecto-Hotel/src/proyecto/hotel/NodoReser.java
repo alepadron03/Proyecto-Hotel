@@ -12,6 +12,7 @@ public class NodoReser {
     private NodoReser hijoIzq;
     private NodoReser hijoDer;
     private Cliente data;
+    private int altura;
 
     public NodoReser(Cliente data) {
         this.hijoIzq = null;
@@ -52,4 +53,15 @@ public class NodoReser {
     public boolean esHoja(){
         return(getHijoIzq()==null && getHijoDer()==null);
     }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+    
+    
+    
 }
